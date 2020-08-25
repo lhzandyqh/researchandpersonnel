@@ -169,7 +169,7 @@ export const asyncRoutes = [
         component: () => import('@/views/customInterface/dataColletion/oneTimeCollection'),
         name: 'onetime',
         meta: {
-          title: '单次收集',
+          title: '个人信息',
           roles: ['admin', 'editor'] // or you can only set roles in sub nav
         }
       },
@@ -178,7 +178,7 @@ export const asyncRoutes = [
         component: () => import('@/views/customInterface/dataColletion/manyTimesCollection'),
         name: 'manytimes',
         meta: {
-          title: '多次收集',
+          title: '科研信息',
           roles: ['admin', 'editor'] // or you can only set roles in sub nav
         }
       },
@@ -187,7 +187,7 @@ export const asyncRoutes = [
         component: () => import('@/views/customInterface/dataColletion/myInformation'),
         name: 'manytimes',
         meta: {
-          title: '我的信息',
+          title: '信息总览',
           roles: ['admin', 'editor'] // or you can only set roles in sub nav
         }
       }
@@ -199,7 +199,7 @@ export const asyncRoutes = [
     redirect: '/approval/index',
     alwaysShow: true, // will always show the root menu
     meta: {
-      title: '流转审批',
+      title: '项目报批',
       icon: 'example',
       roles: ['admin', 'editor'] // you can set roles in root nav
     },
@@ -209,7 +209,7 @@ export const asyncRoutes = [
         component: () => import('@/views/customInterface/circulationApproval/formFill'),
         name: 'formfill',
         meta: {
-          title: '表单填写',
+          title: '填写申报',
           roles: ['admin', 'editor'] // or you can only set roles in sub nav
         }
       },
@@ -237,14 +237,91 @@ export const asyncRoutes = [
     ]
   },
   {
-    path: '/smartexport',
+    path: '/projectmanage',
     component: Layout,
+    redirect: '/projectmanage/index',
+    alwaysShow: true, // will always show the root menu
+    meta: {
+      title: '项目管理',
+      icon: 'documentation',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
     children: [
       {
-        path: 'index',
+        path: 'processwarn',
+        component: () => import('@/views/customInterface/projectManage/index'),
+        name: 'processwarn',
+        meta: {
+          title: '进度提醒',
+          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'projectbegin',
+        component: () => import('@/views/customInterface/projectManage/projectBegin'),
+        name: 'projectbegin',
+        meta: {
+          title: '项目开题',
+          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'projectmiddle',
+        component: () => import('@/views/customInterface/projectManage/projectmiddle'),
+        name: 'projectmiddle',
+        meta: {
+          title: '项目中期',
+          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'projectfinal',
+        component: () => import('@/views/customInterface/projectManage/projectFinal'),
+        name: 'projectfinal',
+        meta: {
+          title: '项目结题',
+          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+        }
+      }
+    ]
+  },
+  {
+    path: '/smartexport',
+    component: Layout,
+    redirect: '/smartexport/index',
+    alwaysShow: true, // will always show the root menu
+    meta: {
+      title: '智能服务',
+      icon: 'documentation',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'smartexport',
         component: () => import('@/views/customInterface/smartExport/index'),
         name: 'smartexport',
-        meta: { title: '智能导出', icon: 'documentation', noCache: true }
+        meta: {
+          title: '智能导出',
+          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'smartimport',
+        component: () => import('@/views/customInterface/smartExport/smartImport'),
+        name: 'smartimport',
+        meta: {
+          title: '智能导入',
+          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'onekeymodel',
+        component: () => import('@/views/customInterface/smartExport/onekeyModel'),
+        name: 'onekeymodel',
+        meta: {
+          title: '一键模板',
+          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+        }
       }
     ]
   },
