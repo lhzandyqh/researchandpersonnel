@@ -1,12 +1,12 @@
 <template>
   <div class="app-container">
     <h1>智能导入</h1>
-  </div>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'SmartImport'
+  name: 'SmartImport',
 }
 </script>
 

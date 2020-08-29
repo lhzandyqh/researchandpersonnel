@@ -224,18 +224,24 @@ export const asyncRoutes = [
       }
     ]
   },
-  {
-    path: '/projectmanage',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/customInterface/projectManage/index'),
-        name: 'Icons',
-        meta: { title: '项目管理', icon: 'tree-table', noCache: true }
-      }
-    ]
-  },
+  // {
+  //   path: '/projectmanage',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+
+  //       component: () => import('@/views/dashboard/index'),
+  //       name: 'Icons',
+  //       meta: { title: '项目管理2', icon: 'tree-table', noCache: true }
+
+  //       component: () => import('@/views/customInterface/projectManage/index'),
+  //       name: 'Icons',
+  //       meta: { title: '项目管理', icon: 'tree-table', noCache: true }
+
+  //     }
+  //   ]
+  // },
   {
     path: '/projectmanage',
     component: Layout,
