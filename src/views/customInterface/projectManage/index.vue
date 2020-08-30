@@ -10,24 +10,24 @@
                 <span style="font-weight: bolder">项目开题</span>
                 <span>新型复合材料研究与应用</span>
                 <span>2020-09-23</span>
-<!--                <div class="shuzi">2</div>-->
+                <!--                <div class="shuzi">2</div>-->
               </div>
               <div class="item lan_border">
                 <span style="font-weight: bolder">项目中期</span>
                 <span>基非晶涂层的制备及其性能研究</span>
                 <span>2020-10-03</span>
-<!--                <div class="shuzi">4</div>-->
+                <!--                <div class="shuzi">4</div>-->
               </div>
               <div class="item hong_border">
                 <span style="font-weight: bolder">项目结题</span>
                 <span>废弃物新型板材研发</span>
                 <span>2021-01-23</span>
-<!--                <div class="shuzi">12</div>-->
+                <!--                <div class="shuzi">12</div>-->
               </div>
-<!--              <div class="item lv_border">-->
-<!--                <span>科研任务/项目完成数(个)</span>-->
-<!--                <div class="shuzi">10</div>-->
-<!--              </div>-->
+              <!--              <div class="item lv_border">-->
+              <!--                <span>科研任务/项目完成数(个)</span>-->
+              <!--                <div class="shuzi">10</div>-->
+              <!--              </div>-->
             </div>
             <div />
           </div>
