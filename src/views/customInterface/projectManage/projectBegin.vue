@@ -18,7 +18,7 @@
       </el-table-column>
       <el-table-column
         prop="people"
-        label="署名"
+        label="开题评审专家"
         align="center"
         width="180">
       </el-table-column>
@@ -26,21 +26,19 @@
         prop="people"
         label="项目负责人"
         align="center"
-        width="180">
+        width="150">
       </el-table-column>
       <el-table-column
         prop="date"
         label="开题时间"
         align="center"
-        width="180">
+        width="150">
       </el-table-column>
       <el-table-column
-        label="详细信息"
+        prop="score"
+        label="开题评议结果"
         align="center"
-        width="100">
-        <template slot-scope="scope">
-          <el-button @click="viewdetails" type="text" size="medium">查看</el-button>
-        </template>
+        width="150">
       </el-table-column>
       <el-table-column
         label="附件资料"
@@ -52,8 +50,8 @@
         align="center"
         >
         <template slot-scope="scope">
-          <el-button @click="changeinfo" type="primary" plain size="mini">修改</el-button>
-          <el-button  type="danger" plain size="mini">删除</el-button>
+          <el-button @click="changeinfo" type="text" size="medium">修改</el-button>
+          <el-button @click="viewdetails" type="text" size="medium">查看详细信息</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -82,7 +80,7 @@
                   <el-col :span="8">
                     <div class="single">
                       <div class="biaoqian">
-                        <span style="font-weight: bolder">署&#8195;&#8195;名：</span>
+                        <span style="font-weight: bolder">开题评审专家：</span>
                       </div>
                       <div class="content">
                         <span>王老师</span>
@@ -108,6 +106,16 @@
                       </div>
                       <div class="content">
                         <span>2016-05-02</span>
+                      </div>
+                    </div>
+                  </el-col>
+                  <el-col :span="8">
+                    <div class="single">
+                      <div class="biaoqian">
+                        <span style="font-weight: bolder">开题评议结果：</span>
+                      </div>
+                      <div class="content">
+                        <span>优秀</span>
                       </div>
                     </div>
                   </el-col>
@@ -317,7 +325,7 @@
                   <el-col :span="8">
                     <div class="single">
                       <div class="biaoqian">
-                        <span style="font-weight: bolder">署&#8195;&#8195;名：</span>
+                        <span style="font-weight: bolder">开题评审专家：</span>
                       </div>
                       <div class="content">
                         <el-input placeholder="请输入内容"/>
@@ -343,6 +351,16 @@
                       </div>
                       <div class="content" style="width: 185px">
                         <el-date-picker  type="date" format="yyyy-MM-dd" value-format="yyyy-MM-dd" placeholder="选择日期" style="width: 100%;"/>
+                      </div>
+                    </div>
+                  </el-col>
+                  <el-col :span="8">
+                    <div class="single">
+                      <div class="biaoqian">
+                        <span style="font-weight: bolder">开题评议结果：</span>
+                      </div>
+                      <div class="content">
+                        <el-input placeholder="请输入内容"/>
                       </div>
                     </div>
                   </el-col>
@@ -564,19 +582,22 @@ export default {
       showdetails: false,
       tableData: [{
         date: '2016-05-02',
+        score:'优秀',
         name: '大数据产业',
         people:'王老师',
-        address: '上海市普陀区金沙江路 1518 弄'
+
       }, {
         date: '2016-05-04',
+        score:'良好',
         name: '自然语言处理问答系统',
         people:'刘老师',
-        address: '上海市普陀区金沙江路 1517 弄'
+
       }, {
         date: '2016-05-01',
         name: '前端可视化',
+        score:'优秀',
         people:'李老师',
-        address: '上海市普陀区金沙江路 1519 弄'
+
       }]
     }
   },

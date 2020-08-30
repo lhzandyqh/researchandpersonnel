@@ -91,11 +91,7 @@
     <div>
       <el-dialog :visible.sync="showpdf" title="显示pdf" width="80%" fullscreen="true" >
         <el-card class="pdfcard">
-<<<<<<< HEAD
         <iframe :src="pathUr" width="100%" height="100%" style="position:static;left: 0px;top: 40px;" frameborder="0"></iframe>
-=======
-          <iframe :src="pathUr" width="100%" height="100%" style="position:static;left: 0px;top: 40px;" frameborder="0"></iframe>
->>>>>>> f8b16f0343cfd956a87206ccc70d0e6766da9b22
         </el-card>
       </el-dialog>
     </div>
@@ -103,7 +99,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 export default {
   name: 'Index',
   data() {
@@ -123,33 +118,6 @@ export default {
       },]
     };
   },
-  methods: {
-    openpdf() {
-      document.title = 'test1.pdf'
-      let filePath = 'test1.pdf'
-      this.pathUr = '../../static/pdfjs/web/viewer.html?file=' + filePath   //  根据自己的文件地址将viewe.html引进来
-      this.showpdf = true;
-=======
-  export default {
-    name: 'Index',
-    data() {
-      return {
-        showpdf:false,
-        pathUr: '',
-        tableData: [{
-          name: '科技项目申请表',
-          personname:'王老师',
-          indate:'2019-6-20',
-          lastdate:'2022-6-20',
-        }, {
-          name: '项目申报表',
-          personname:'刘老师',
-          indate:'2019-6-20',
-          lastdate:'2022-6-20',
-        },]
-      };
->>>>>>> f8b16f0343cfd956a87206ccc70d0e6766da9b22
-    },
     methods: {
       openpdf() {
         document.title = 'test1.pdf'
