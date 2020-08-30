@@ -383,7 +383,7 @@ export default {
       }
     }
     return {
-      schna: ['https://zhongkeruitong.top/dangjian/2.png', 'https://zhongkeruitong.top/dangjian/3.jpg'],
+      schna: ['http://zhihejiaoyu.cn/reveal/img/keyan1.jpg', 'http://zhihejiaoyu.cn/reveal/img/keyan2.jpg'],
       dialogVisible: false,
       loginForm: {
         username: 'admin',
