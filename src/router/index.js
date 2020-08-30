@@ -182,15 +182,15 @@ export const asyncRoutes = [
           roles: ['admin', 'editor'] // or you can only set roles in sub nav
         }
       },
-      {
-        path: 'myInformation',
-        component: () => import('@/views/customInterface/dataColletion/myInformation'),
-        name: 'manytimes',
-        meta: {
-          title: '信息总览',
-          roles: ['admin', 'editor'] // or you can only set roles in sub nav
-        }
-      }
+      // {
+      //   path: 'myInformation',
+      //   component: () => import('@/views/customInterface/dataColletion/myInformation'),
+      //   name: 'manytimes',
+      //   meta: {
+      //     title: '信息总览',
+      //     roles: ['admin', 'editor'] // or you can only set roles in sub nav
+      //   }
+      // }
     ]
   },
   {
