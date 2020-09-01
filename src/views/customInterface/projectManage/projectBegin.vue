@@ -6,6 +6,7 @@
 <!--        <span style="font-weight: bolder;color:#409EFF;margin-bottom: 10px">表类</span>-->
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <el-table
       :data="tableData"
       border
@@ -55,6 +56,17 @@
         </template>
       </el-table-column>
     </el-table>
+    <div class="fenye">
+      <el-pagination
+        :current-page="currentPage4"
+        :page-sizes="[4, 8, 16]"
+        :page-size="4"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="3"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      />
+    </div>
     <div>
       <el-dialog :visible.sync="showdetails" title="课题详细信息" style="text-align: center" width="70%" >
         <el-tabs v-model="activeName">
@@ -644,5 +656,9 @@ export default {
 .card-container{
   margin-top: 10px;
 }
+  .fenye{
+    margin-top: 20px;
+    text-align: center;
+  }
 
 </style>

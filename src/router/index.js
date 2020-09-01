@@ -311,24 +311,24 @@ export const asyncRoutes = [
           roles: ['admin', 'editor'] // or you can only set roles in sub nav
         }
       },
-      {
-        path: 'smartimport',
-        component: () => import('@/views/customInterface/smartExport/smartImport'),
-        name: 'smartimport',
-        meta: {
-          title: '智能导入',
-          roles: ['admin', 'editor'] // or you can only set roles in sub nav
-        }
-      },
-      {
-        path: 'onekeymodel',
-        component: () => import('@/views/customInterface/smartExport/onekeyModel'),
-        name: 'onekeymodel',
-        meta: {
-          title: '一键模板',
-          roles: ['admin', 'editor'] // or you can only set roles in sub nav
-        }
-      }
+      // {
+      //   path: 'smartimport',
+      //   component: () => import('@/views/customInterface/smartExport/smartImport'),
+      //   name: 'smartimport',
+      //   meta: {
+      //     title: '智能导入',
+      //     roles: ['admin', 'editor'] // or you can only set roles in sub nav
+      //   }
+      // },
+      // {
+      //   path: 'onekeymodel',
+      //   component: () => import('@/views/customInterface/smartExport/onekeyModel'),
+      //   name: 'onekeymodel',
+      //   meta: {
+      //     title: '一键模板',
+      //     roles: ['admin', 'editor'] // or you can only set roles in sub nav
+      //   }
+      // }
     ]
   },
 

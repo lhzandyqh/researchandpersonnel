@@ -2,10 +2,11 @@
   <div class="app-container">
     <el-row style="margin: 10px 10px 10px 20px">
       <el-col :span="24">
-        <el-button  @click="changeinfo" style="float: right; padding: 3px 0;margin-right: 15px" size="medium" type="text">新增开题</el-button>
+        <el-button  @click="changeinfo" style="float: right; padding: 3px 0;margin-right: 15px" size="medium" type="text">新增中期</el-button>
         <!--        <span style="font-weight: bolder;color:#409EFF;margin-bottom: 10px">表类</span>-->
       </el-col>
     </el-row>
+    <el-divider></el-divider>
     <el-table
       :data="tableData"
       border
@@ -55,6 +56,17 @@
         </template>
       </el-table-column>
     </el-table>
+    <div class="fenye">
+      <el-pagination
+        :current-page="currentPage4"
+        :page-sizes="[4, 8, 16]"
+        :page-size="4"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="3"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+      />
+    </div>
     <div>
       <el-dialog :visible.sync="showdetails" title="课题详细信息" style="text-align: center" width="70%" >
         <el-tabs v-model="activeName">
@@ -581,20 +593,20 @@ export default {
       activeName: 'first',
       showdetails: false,
       tableData: [{
-        date: '2016-05-02',
+        date: '2019-08-02',
         score:'优秀',
-        name: '大数据产业',
+        name: '校园大数据中心建设',
         people:'王老师',
 
       }, {
-        date: '2016-05-04',
+        date: '2019-11-04',
         score:'良好',
-        name: '自然语言处理问答系统',
+        name: '教师评教评学系统',
         people:'刘老师',
 
       }, {
-        date: '2016-05-01',
-        name: '前端可视化',
+        date: '2019-12-01',
+        name: '专业智能知识库建设',
         score:'优秀',
         people:'李老师',
 
@@ -642,5 +654,9 @@ export default {
   }
   .card-container{
     margin-top: 10px;
+  }
+  .fenye{
+    text-align: center;
+    margin-top: 20px;
   }
 </style>

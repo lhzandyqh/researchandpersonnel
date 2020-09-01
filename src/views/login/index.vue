@@ -191,6 +191,57 @@
         </div>
       </div>
     </div>
+    <div class="card w clearfix">
+      <div class="card_container_two">
+        <div class="box-hd">
+          <h3>常用工具</h3>
+        </div>
+        <div class="card_body">
+          <div class="kapian_two">
+            <div class="kapian_item">
+              <div style="text-align: center;margin-top: 5px">
+                <img style="width: 65px;height: 65px" src="../../assets/icon/mulu.png">
+              </div>
+              <div style="text-align: center;margin-top: 5px">
+                <span style="font-size: 12px;color: white">期刊目录查询</span>
+              </div>
+            </div>
+            <div class="kapian_item">
+              <div style="text-align: center;margin-top: 5px">
+                <img style="width: 70px;height: 70px" src="../../assets/icon/jiangli.png">
+              </div>
+              <div style="text-align: center">
+                <span style="font-size: 12px;color: white">奖励信息查询</span>
+              </div>
+            </div>
+            <div class="kapian_item">
+              <div style="text-align: center;margin-top: 5px">
+                <img style="width: 70px;height: 70px" src="../../assets/icon/xiangmu.png">
+              </div>
+              <div style="text-align: center">
+                <span style="font-size: 12px;color: white">项目信息查询</span>
+              </div>
+            </div>
+            <div class="kapian_item">
+              <div style="text-align: center;margin-top: 5px">
+                <img style="width: 65px;height: 65px" src="../../assets/icon/tushuguan.png">
+              </div>
+              <div style="text-align: center">
+                <span style="font-size: 12px;color: white">图书馆</span>
+              </div>
+            </div>
+            <div class="kapian_item">
+              <div style="text-align: center;margin-top: 5px">
+                <img style="width: 65px;height: 65px" src="../../assets/icon/zhiwang.png">
+              </div>
+              <div style="text-align: center">
+                <span style="font-size: 12px;color: white">中国知网</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="footer">
       <div class="w">
         <div class="foot_img">
@@ -938,6 +989,22 @@ body {
   background-color: white;
   border-radius: 10px;
 }
+.kapian_two {
+  width: 100%;
+  height: 150px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+}
+.kapian_item{
+  cursor: pointer;
+  border-radius: 10px;
+  margin-left: 20px;
+  float: left;
+  background-color: #76ccd2;
+  width: 100px;
+  height: 100px;
+}
 .kapian ul {
   width: 580px;
   height: 300px;
@@ -999,4 +1066,7 @@ body {
 .charts{
   padding-top: 20px;
 }
+  .card_container_two{
+    width: 100%;
+  }
 </style>

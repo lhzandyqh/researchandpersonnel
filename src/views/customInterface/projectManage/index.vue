@@ -8,19 +8,19 @@
             <div class="item_content">
               <div class="item zi_border">
                 <span style="font-weight: bolder">项目开题</span>
-                <span>新型复合材料研究与应用</span>
+                <span>自然语言处理问答系统</span>
                 <span>2020-09-23</span>
                 <!--                <div class="shuzi">2</div>-->
               </div>
               <div class="item lan_border">
                 <span style="font-weight: bolder">项目中期</span>
-                <span>基非晶涂层的制备及其性能研究</span>
+                <span>专业智能知识库建设</span>
                 <span>2020-10-03</span>
                 <!--                <div class="shuzi">4</div>-->
               </div>
               <div class="item hong_border">
                 <span style="font-weight: bolder">项目结题</span>
-                <span>废弃物新型板材研发</span>
+                <span>NLP语言智能识别</span>
                 <span>2021-01-23</span>
                 <!--                <div class="shuzi">12</div>-->
               </div>
@@ -38,7 +38,7 @@
               <el-col :span="6">
                 <div class="projectname">
                   <span class="name_head">项目名称：</span>
-                  <span class="name_content">新型复合材料研究与应用</span>
+                  <span class="name_content">自然语言处理问答系统</span>
                 </div>
               </el-col>
               <el-col :span="10">
@@ -67,7 +67,7 @@
               <el-col :span="6">
                 <div class="projectname">
                   <span class="name_head">项目名称：</span>
-                  <span class="name_content">基非晶涂层的制备及其性能研究</span>
+                  <span class="name_content">专业智能知识库建设</span>
                 </div>
               </el-col>
               <el-col :span="10">
@@ -96,7 +96,7 @@
               <el-col :span="6">
                 <div class="projectname">
                   <span class="name_head">项目名称：</span>
-                  <span class="name_content">废弃物新型板材研发</span>
+                  <span class="name_content">NLP语言智能识别</span>
                 </div>
               </el-col>
               <el-col :span="10">
@@ -118,6 +118,17 @@
               </el-col>
             </el-row>
           </el-card>
+        </div>
+        <div class="fenye">
+          <el-pagination
+            :current-page="currentPage4"
+            :page-sizes="[4, 8, 16]"
+            :page-size="4"
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="3"
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+          />
         </div>
       </el-card>
     </div>
@@ -194,6 +205,10 @@ export default {
     text-align: center;
   }
   .approval_item {
+    margin-top: 20px;
+  }
+  .fenye {
+    text-align: center;
     margin-top: 20px;
   }
 
