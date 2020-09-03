@@ -34,11 +34,14 @@
               {{ $t('navbar.dashboard') }}
             </el-dropdown-item>
           </router-link>
-          <a target="_blank" href="https://github.com/PanJiaChen/vue-element-admin/">
-            <el-dropdown-item>
-              {{ $t('navbar.github') }}
-            </el-dropdown-item>
-          </a>
+<!--          <a target="_blank" href="https://github.com/PanJiaChen/vue-element-admin/">-->
+<!--            <el-dropdown-item>-->
+<!--              {{ $t('navbar.github') }}-->
+<!--            </el-dropdown-item>-->
+<!--          </a>-->
+          <el-dropdown-item divided>
+            <switch-roles @change="handleRolesChange" />
+          </el-dropdown-item>
           <el-dropdown-item divided>
             <span style="display:block;" @click="logout">{{ $t('navbar.logOut') }}</span>
           </el-dropdown-item>
@@ -59,6 +62,8 @@ import LangSelect from '@/components/LangSelect'
 import ThemePicker from '@/components/ThemePicker'
 import Search from '@/components/HeaderSearch'
 
+import SwitchRoles from '@/views/permission/components/SwitchRoles'
+
 export default {
   components: {
     Breadcrumb,
@@ -68,7 +73,8 @@ export default {
     SizeSelect,
     LangSelect,
     ThemePicker,
-    Search
+    Search,
+    SwitchRoles
   },
   computed: {
     ...mapGetters([
@@ -79,6 +85,11 @@ export default {
     ])
   },
   methods: {
+    handleRolesChange() {
+      console.log('handleRolesChange')
+      this.$router.push({ path: 'dashboard' })
+      // this.$router.push({ path: '/permission/index?' + +new Date() })
+    },
     toggleSideBar() {
       this.$store.dispatch('toggleSideBar')
     },

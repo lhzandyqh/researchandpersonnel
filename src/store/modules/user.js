@@ -126,9 +126,13 @@ const user = {
     ChangeRoles({ commit, dispatch }, role) {
       return new Promise(resolve => {
         commit('SET_TOKEN', role)
+        console.log('测试role')
+        console.log(role)
         setToken(role)
         getUserInfo(role).then(response => {
           const data = response.data
+          console.log('测试getUserInfo')
+          console.log(data)
           commit('SET_ROLES', data.roles)
           commit('SET_NAME', data.name)
           commit('SET_AVATAR', data.avatar)

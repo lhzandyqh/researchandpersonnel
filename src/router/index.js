@@ -159,9 +159,9 @@ export const asyncRoutes = [
     redirect: '/collect/index',
     alwaysShow: true, // will always show the root menu
     meta: {
-      title: '信息收集',
+      title: '信息提交',
       icon: 'form',
-      roles: ['admin', 'editor'] // you can set roles in root nav
+      roles: ['admin', '教师'] // you can set roles in root nav
     },
     children: [
       {
@@ -169,8 +169,8 @@ export const asyncRoutes = [
         component: () => import('@/views/customInterface/dataColletion/oneTimeCollection'),
         name: 'onetime',
         meta: {
-          title: '个人信息',
-          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+          title: '基本信息',
+          roles: ['admin', '教师'] // or you can only set roles in sub nav
         }
       },
       {
@@ -178,8 +178,8 @@ export const asyncRoutes = [
         component: () => import('@/views/customInterface/dataColletion/manyTimesCollection'),
         name: 'manytimes',
         meta: {
-          title: '科研信息',
-          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+          title: '科研成果',
+          roles: ['admin', '教师'] // or you can only set roles in sub nav
         }
       },
       // {
@@ -201,7 +201,7 @@ export const asyncRoutes = [
     meta: {
       title: '项目报批',
       icon: 'example',
-      roles: ['admin', 'editor'] // you can set roles in root nav
+      roles: ['管理员', '教师'] // you can set roles in root nav
     },
     children: [
       {
@@ -210,7 +210,7 @@ export const asyncRoutes = [
         name: 'formfill',
         meta: {
           title: '填写申报',
-          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+          roles: ['管理员', '教师'] // or you can only set roles in sub nav
         }
       },
       {
@@ -219,7 +219,7 @@ export const asyncRoutes = [
         name: 'manytimes',
         meta: {
           title: '审批进度',
-          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+          roles: ['管理员', '教师'] // or you can only set roles in sub nav
         }
       }
     ]
@@ -250,7 +250,7 @@ export const asyncRoutes = [
     meta: {
       title: '项目管理',
       icon: 'documentation',
-      roles: ['admin', 'editor'] // you can set roles in root nav
+      roles: ['admin', '教师'] // you can set roles in root nav
     },
     children: [
       {
@@ -259,7 +259,7 @@ export const asyncRoutes = [
         name: 'processwarn',
         meta: {
           title: '进度提醒',
-          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+          roles: ['admin', '教师'] // or you can only set roles in sub nav
         }
       },
       {
@@ -268,7 +268,7 @@ export const asyncRoutes = [
         name: 'projectbegin',
         meta: {
           title: '项目开题',
-          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+          roles: ['admin', '教师'] // or you can only set roles in sub nav
         }
       },
       {
@@ -277,7 +277,7 @@ export const asyncRoutes = [
         name: 'projectmiddle',
         meta: {
           title: '项目中期',
-          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+          roles: ['admin', '教师'] // or you can only set roles in sub nav
         }
       },
       {
@@ -286,8 +286,93 @@ export const asyncRoutes = [
         name: 'projectfinal',
         meta: {
           title: '项目结题',
-          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+          roles: ['admin', '教师'] // or you can only set roles in sub nav
         }
+      }
+    ]
+  },
+  {
+    path: '/projectapproval',
+    component: Layout,
+    redirect: '/projectapproval/index',
+    alwaysShow: true, // will always show the root menu
+    meta: {
+      title: '项目审批',
+      icon: 'table',
+      roles: ['科研主管', '系部主管'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'departmentapproval',
+        component: () => import('@/views/customInterface/projectApproval/departmentApproval'),
+        name: 'departmentapproval',
+        meta: {
+          title: '等待审批',
+          roles: ['系部主管'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'researchmentapproval',
+        component: () => import('@/views/customInterface/projectApproval/researchApproval'),
+        name: 'researchmentapproval',
+        meta: {
+          title: '等待审批',
+          roles: ['科研主管'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'departmenthistory',
+        component: () => import('@/views/customInterface/projectApproval/departmentHistory'),
+        name: 'departmenthistory',
+        meta: {
+          title: '审批历史',
+          roles: ['系部主管'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'researchhistory',
+        component: () => import('@/views/customInterface/projectApproval/researchHistory'),
+        name: 'researchhistory',
+        meta: {
+          title: '审批历史',
+          roles: ['科研主管'] // or you can only set roles in sub nav
+        }
+      }
+    ]
+  },
+  {
+    path: '/smartinquire',
+    component: Layout,
+    children: [
+      {
+        path: 'smartinquire',
+        component: () => import('@/views/customInterface/smartInquire/index'),
+        name: 'smartinquire',
+        meta: { title: '智能查询', icon: 'search', noCache: true, roles: ['科研主管'] }
+      }
+    ]
+  },
+  {
+    path: '/authoritymanagement',
+    component: Layout,
+    children: [
+      {
+        path: 'authoritymanagement',
+        component: () => import('@/views/customInterface/authorityManagement/index'),
+        name: 'authoritymanagement',
+        meta: { title: '权限管理', icon: 'people', noCache: true, roles: ['科研主管'] }
+      }
+    ]
+  },
+  {
+    path: '/pointsconfiguration',
+    component: Layout,
+    children: [
+      {
+        path: 'pointsconfiguration',
+        component: () => import('@/views/customInterface/pointsConfiguration/index'),
+        name: 'pointsConfiguration',
+        meta: { title: '积分配置', icon: 'tab', noCache: true, roles: ['科研主管'] }
       }
     ]
   },
@@ -298,8 +383,8 @@ export const asyncRoutes = [
     alwaysShow: true, // will always show the root menu
     meta: {
       title: '智能服务',
-      icon: 'documentation',
-      roles: ['admin', 'editor'] // you can set roles in root nav
+      icon: 'tree-table',
+      roles: ['系部主管', '教师', '科研主管'] // you can set roles in root nav
     },
     children: [
       {
@@ -307,28 +392,28 @@ export const asyncRoutes = [
         component: () => import('@/views/customInterface/smartExport/index'),
         name: 'smartexport',
         meta: {
-          title: '智能导出',
-          roles: ['admin', 'editor'] // or you can only set roles in sub nav
+          title: '一键导出',
+          roles: ['科研主管','系部主管', '教师'] // or you can only set roles in sub nav
         }
       },
-      // {
-      //   path: 'smartimport',
-      //   component: () => import('@/views/customInterface/smartExport/smartImport'),
-      //   name: 'smartimport',
-      //   meta: {
-      //     title: '智能导入',
-      //     roles: ['admin', 'editor'] // or you can only set roles in sub nav
-      //   }
-      // },
-      // {
-      //   path: 'onekeymodel',
-      //   component: () => import('@/views/customInterface/smartExport/onekeyModel'),
-      //   name: 'onekeymodel',
-      //   meta: {
-      //     title: '一键模板',
-      //     roles: ['admin', 'editor'] // or you can only set roles in sub nav
-      //   }
-      // }
+      {
+        path: 'smartimport',
+        component: () => import('@/views/customInterface/smartExport/smartImport'),
+        name: 'smartimport',
+        meta: {
+          title: '智能导入',
+          roles: ['科研主管','系部主管'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'onekeymodel',
+        component: () => import('@/views/customInterface/smartExport/onekeyModel'),
+        name: 'onekeymodel',
+        meta: {
+          title: '一键模板',
+          roles: ['科研主管'] // or you can only set roles in sub nav
+        }
+      }
     ]
   },
 
@@ -340,7 +425,7 @@ export const asyncRoutes = [
   //       path: 'index',
   //       component: () => import('@/views/svg-icons/index'),
   //       name: 'Icons',
-  //       meta: { title: 'icons', icon: 'icon', noCache: true }
+  //       meta: { title: 'icons', icon: 'icon', noCache: true, roles: ['系部主管','科研主管'] }
   //     }
   //   ]
   // },
