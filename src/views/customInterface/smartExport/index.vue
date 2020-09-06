@@ -88,6 +88,17 @@
         </el-tab-pane>
       </el-tabs>
     </el-row>
+    <div class="fenye">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage4"
+        :page-sizes="[5, 10, 15, 20]"
+        :page-size="5"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="2">
+      </el-pagination>
+    </div>
     <div>
       <el-dialog :visible.sync="showpdf" title="显示pdf" width="80%" fullscreen="true" >
         <el-card class="pdfcard">
@@ -130,6 +141,10 @@ export default {
 </script>
 
 <style scoped>
+  .fenye{
+    margin-top: 20px;
+    text-align: center;
+  }
   /deep/ .el-dialog__header{
     padding-top: 10px;
   }
