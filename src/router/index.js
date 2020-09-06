@@ -307,7 +307,7 @@ export const asyncRoutes = [
         component: () => import('@/views/customInterface/projectApproval/departmentApproval'),
         name: 'departmentapproval',
         meta: {
-          title: '等待审批',
+          title: '待批项目',
           roles: ['系部主管'] // or you can only set roles in sub nav
         }
       },
