@@ -35,6 +35,12 @@
               <chart-two />
             </el-col>
           </el-row>
+          <el-row>
+            <el-col :span="14">
+             <chart_three></chart_three>
+            </el-col>
+
+          </el-row>
         </div>
       </el-card>
     </div>
@@ -44,11 +50,13 @@
 <script>
 import chartOne from '@/views/customInterface/homePage/echart/chart_one'
 import chartTwo from '@/views/customInterface/homePage/echart/chart_two'
+import chart_three from './echart/chart_three'
 export default {
   name: 'Index',
   components: {
     chartOne,
-    chartTwo
+    chartTwo,
+    chart_three
   }
 }
 </script>
