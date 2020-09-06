@@ -599,7 +599,7 @@ $light_gray:#eee;
     display: inline-block;
   }
   .title-container {
-    position: relative;
+    position: center;
     .title {
       font-size: 26px;
       color: $light_gray;

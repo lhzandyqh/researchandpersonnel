@@ -186,7 +186,7 @@
                     <span style="font-weight: bolder">聘用合同起始时间：</span>
                   </div>
                   <div class="content">
-                    <span>{{ contract_start_date }}</span>
+                    <span></span>
                   </div>
                 </div>
               </el-col>
@@ -196,7 +196,7 @@
                     <span style="font-weight: bolder">聘用合同终止时间：</span>
                   </div>
                   <div class="content">
-                    <span>{{ contract_end_date }}</span>
+                    <span></span>
                   </div>
                 </div>
               </el-col>
@@ -414,7 +414,7 @@
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="updateWorkExperience">确 定</el-button>
+          <el-button type="primary">确 定</el-button>
         </div>
       </el-dialog>
     </div>
@@ -444,7 +444,7 @@
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="editDialogVisible = false">取 消</el-button>
-          <el-button type="primary" @click="confirmUpdate">确 定</el-button>
+          <el-button type="primary">确 定</el-button>
         </div>
       </el-dialog>
     </div>
@@ -561,8 +561,8 @@
           </el-col>
         </el-row>
         <div slot="footer" class="dialog-footer">
-          <el-button @click="notEditProfessionalAbility">取 消</el-button>
-          <el-button type="primary" @click="confirmEditProfessionalAbility">确 定</el-button>
+          <el-button >取 消</el-button>
+          <el-button type="primary">确 定</el-button>
         </div>
       </el-dialog>
     </div>
