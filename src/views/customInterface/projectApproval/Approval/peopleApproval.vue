@@ -1,19 +1,19 @@
 <template>
   <div class="app-container">
-    <el-table :data="peopleData" border fit highlight-current-row style="width: 70%">
-      <el-table-column prop="number" align="center" label="审核编号" width="80">
+    <el-table :data="peopleData" border fit highlight-current-row style="width: 100%">
+      <el-table-column prop="number" align="center" label="审核编号" >
       </el-table-column>
-      <el-table-column prop="sub" width="150" align="center" label="个人信息修改类型">
+      <el-table-column prop="sub" align="center" label="个人信息修改类型">
       </el-table-column>
-      <el-table-column prop="applypeople" width="130" align="center" label="申请人">
+      <el-table-column prop="applypeople" align="center" label="申请人">
       </el-table-column>
-      <el-table-column prop="approvalpeople" width="130" align="center" label="审核人">
+      <el-table-column prop="approvalpeople" align="center" label="审核人">
       </el-table-column>
-      <el-table-column prop="subdate" width="150" align="center" label="提交时间">
+      <el-table-column prop="subdate" align="center" label="提交时间">
       </el-table-column>
-      <el-table-column prop="approvaldate" width="150" align="center" label="审核时间">
+      <el-table-column prop="approvaldate" align="center" label="审核时间">
       </el-table-column>
-      <el-table-column width="180" align="center" label="审核状态">
+      <el-table-column align="center" label="审核状态">
         <template slot-scope="scope">
           <el-tag  v-if="scope.row.approval==='通过'" type="success">审核通过</el-tag>
           <el-tag  v-if="scope.row.approval==='未通过'" type="danger">审核未通过</el-tag>
