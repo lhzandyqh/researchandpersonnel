@@ -405,15 +405,15 @@ export const asyncRoutes = [
           roles: ['科研主管','系部主管'] // or you can only set roles in sub nav
         }
       },
-      {
-        path: 'onekeymodel',
-        component: () => import('@/views/customInterface/smartExport/onekeyModel'),
-        name: 'onekeymodel',
-        meta: {
-          title: '一键模板',
-          roles: ['科研主管'] // or you can only set roles in sub nav
-        }
-      }
+      // {
+      //   path: 'onekeymodel',
+      //   component: () => import('@/views/customInterface/smartExport/onekeyModel'),
+      //   name: 'onekeymodel',
+      //   meta: {
+      //     title: '一键模板',
+      //     roles: ['科研主管'] // or you can only set roles in sub nav
+      //   }
+      // }
     ]
   },
 

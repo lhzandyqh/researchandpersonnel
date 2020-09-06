@@ -1,19 +1,17 @@
 <template>
   <div class="app-container">
-    <el-table :data="peopleData" border fit highlight-current-row style="width: 100%">
-      <el-table-column prop="number" align="center" label="审核编号" >
+    <el-table :data="peopleData" style="width: 100%" stripe>
+      <el-table-column prop="subdate" label="提交日期">
       </el-table-column>
-      <el-table-column prop="sub" align="center" label="个人信息修改类型">
+      <el-table-column prop="applypeople" label="提交人">
       </el-table-column>
-      <el-table-column prop="applypeople" align="center" label="申请人">
+      <el-table-column prop="department" label="部门">
       </el-table-column>
-      <el-table-column prop="approvalpeople" align="center" label="审核人">
+      <el-table-column prop="sub" label="审核类型">
       </el-table-column>
-      <el-table-column prop="subdate" align="center" label="提交时间">
+      <el-table-column prop="name" label="审核名称">
       </el-table-column>
-      <el-table-column prop="approvaldate" align="center" label="审核时间">
-      </el-table-column>
-      <el-table-column align="center" label="审核状态">
+      <el-table-column label="审核状态">
         <template slot-scope="scope">
           <el-tag  v-if="scope.row.approval==='通过'" type="success">审核通过</el-tag>
           <el-tag  v-if="scope.row.approval==='未通过'" type="danger">审核未通过</el-tag>
@@ -22,18 +20,18 @@
       </el-table-column>
       <el-table-column align="center" label="操作">
         <template slot-scope="scope">
-          <el-button type="primary" size="small" icon="el-icon-zoom-in" @click="jibenview(scope.row.sub)">查看</el-button>
+          <el-button type="primary" size="small" icon="el-icon-zoom-in" @click="jibenview(scope.row.sub)">审核</el-button>
         </template>
       </el-table-column>
-
     </el-table>
-    <div class="fenye">
+    <div style="text-align: center; margin-top: 10px;">
       <el-pagination
-        :current-page="1"
-        :page-sizes="[10, 20, 30]"
-        :page-size="10"
-        :total="10"
-        style="margin-top:20px;"
+        background
+        @current-change="handleCurrentChange"
+        :current-page="currentPage"
+        :page-size="pagesize"
+        :page-sizes="[5, 10]"
+        :total="peopleData.length"
         layout="total, sizes, prev, pager, next, jumper"
       />
     </div>
@@ -42,30 +40,21 @@
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">姓&#8195;&#8195;名：</span>
-            </div>
-            <div class="content">
-              <span>王老师</span>
+              <span style="font-weight: bolder">姓&#8195;&#8195;名：</span><span>王老师</span>
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">性&#8195;&#8195;别：</span>
-            </div>
-            <div class="content">
-              <span>女</span>
+              <span style="font-weight: bolder">性&#8195;&#8195;别：</span><span>女</span>
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">民&#8195;&#8195;族：</span>
-            </div>
-            <div class="content">
-              <span>汉</span>
+              <span style="font-weight: bolder">民&#8195;&#8195;族：</span><span>汉</span>
             </div>
           </div>
         </el-col>
@@ -74,30 +63,21 @@
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">出生年月：</span>
-            </div>
-            <div class="content">
-              <span>1980-3-2</span>
+              <span style="font-weight: bolder">出生年月：</span><span>1980-3-2</span>
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">籍&#8195;&#8195;贯：</span>
-            </div>
-            <div class="content">
-              <span>北京</span>
+              <span style="font-weight: bolder">籍&#8195;&#8195;贯：</span><span>北京</span>
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">职&#8195;&#8195;别：</span>
-            </div>
-            <div class="content">
-              <span>讲师</span>
+              <span style="font-weight: bolder">职&#8195;&#8195;别：</span><span>讲师</span>
             </div>
           </div>
         </el-col>
@@ -106,30 +86,21 @@
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">身份证号：</span>
-            </div>
-            <div class="content">
-              <span>234445198xxxxxxxxx</span>
+              <span style="font-weight: bolder">身份证号：</span><span>234445198xxxxxx</span>
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">政治面目：</span>
-            </div>
-            <div class="content">
-              <span>党员</span>
+              <span style="font-weight: bolder">政治面目：</span><span>党员</span>
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">入党团时间：</span>
-            </div>
-            <div class="content">
-              <span>2003-2-3</span>
+              <span style="font-weight: bolder">入党团时间：</span><span>2003-2-3</span>
             </div>
           </div>
         </el-col>
@@ -138,30 +109,21 @@
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">家庭住址：</span>
-            </div>
-            <div class="content">
-              <span>北京市朝阳区xxxxxxxxxxxx</span>
+              <span style="font-weight: bolder">家庭住址：</span><span>北京市朝阳区</span>
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">手机号码：</span>
-            </div>
-            <div class="content">
-              <span>12345678943</span>
+              <span style="font-weight: bolder">手机号码：</span><span>12345678943</span>
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">Email：</span>
-            </div>
-            <div class="content">
-              <span>222334424#ddd</span>
+              <span style="font-weight: bolder">Email：</span><span>222334424#ddd</span>
             </div>
           </div>
         </el-col>
@@ -170,30 +132,21 @@
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">任教学科：</span>
-            </div>
-            <div class="content">
-              <span>计算机教学</span>
+              <span style="font-weight: bolder">任教学科：</span><span>计算机教学</span>
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">部门：</span>
-            </div>
-            <div class="content">
-              <span>计算机学院</span>
+              <span style="font-weight: bolder">部门：</span><span>计算机学院</span>
             </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">参加工作时间：</span>
-            </div>
-            <div class="content">
-              <span>2009.3.1</span>
+              <span style="font-weight: bolder">参加工作时间：</span><span>2009.3.1</span>
             </div>
           </div>
         </el-col>
@@ -202,10 +155,7 @@
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
-              <span style="font-weight: bolder">工作状态：</span>
-            </div>
-            <div class="content">
-              <span>任职</span>
+              <span style="font-weight: bolder">工作状态：</span><span>任职</span>
             </div>
           </div>
         </el-col>
@@ -215,9 +165,6 @@
             <div class="biaoqian">
               <span style="font-weight: bolder">聘用合同起始时间：</span>
             </div>
-            <div class="content">
-              <span></span>
-            </div>
           </div>
         </el-col>
         <el-col :span="8">
@@ -225,31 +172,69 @@
             <div class="biaoqian">
               <span style="font-weight: bolder">聘用合同终止时间：</span>
             </div>
-            <div class="content">
-              <span></span>
-            </div>
           </div>
         </el-col>
       </el-row>
       <el-divider/>
+      <h4>部门意见</h4>
+      <div>
+        <el-row>
+          <el-col :span="6">
+            信息属实
+          </el-col>
+          <el-col :span="6">
+            <span>审核时间：</span>
+            <span>2019-12-04</span>
+          </el-col>
+          <el-col :span="6">
+            <span>审核人：</span>
+            <span>刘明至</span>
+          </el-col>
+          <el-col :span="5">
+            <span>审核状态</span>
+            <el-tag type="success" size="small">通过</el-tag>
+          </el-col>
+        </el-row>
+      </div>
+      <el-divider />
+      <h4>系部意见</h4>
+      <div>
+        <el-row>
+          <el-col :span="6">
+            批准通过
+          </el-col>
+          <el-col :span="6">
+            <span>审核时间：</span>
+            <span>2019-12-04</span>
+          </el-col>
+          <el-col :span="5">
+            <span>审核人：</span>
+            <span>郭志</span>
+          </el-col>
+          <el-col :span="5">
+            <span>审核状态</span>
+            <el-tag type="success">通过</el-tag>
+          </el-col>
+        </el-row>
+      </div>
+      <el-divider />
       <div>
         <el-row style="padding-top: 10px">
-          <span style="font-weight: bolder">审核原因</span>
+          <span style="font-weight: bolder">科研处意见</span>
         </el-row>
         <el-row style="padding-top: 10px">
           <el-input
             :rows="4"
-            :disabled="false"
             v-model="AuditingReason"
             type="textarea"
-            placeholder="请输入内容(审核通过无需输入)"/>
+            placeholder="请输入内容"/>
         </el-row>
       </div>
       <div class="foot">
         <span slot="footer" class="dialog-footer">
-          <el-button type="success" size="small" plain>审核通过</el-button>
-          <el-button type="danger" size="small" plain>审核未通过</el-button>
-          <el-button type="primary" @click="jibenVisible = false">关闭</el-button>
+          <el-button type="success" size="small" plain @click="pass">审核通过</el-button>
+          <el-button type="danger" size="small" plain @click="pass">审核未通过</el-button>
+          <el-button type="primary" @click="jibenVisible = false" size="small" plain>关闭</el-button>
         </span>
       </div>
     </el-dialog>
@@ -259,8 +244,6 @@
           <div class="single">
             <div class="biaoqian">
               <span style="font-weight: bolder">职&#8195;&#8195;称：</span>
-            </div>
-            <div class="content">
               <span>教授</span>
             </div>
           </div>
@@ -269,8 +252,6 @@
           <div class="single">
             <div class="biaoqian">
               <span style="font-weight: bolder">职称评定时间：</span>
-            </div>
-            <div class="content">
               <span>2013.5.4</span>
             </div>
           </div>
@@ -279,8 +260,6 @@
           <div class="single">
             <div class="biaoqian">
               <span style="font-weight: bolder">岗位级别：</span>
-            </div>
-            <div class="content">
               <span>教授</span>
             </div>
           </div>
@@ -292,18 +271,12 @@
             <div class="biaoqian">
               <span style="font-weight: bolder">荣誉称号：</span>
             </div>
-            <div class="content">
-              <span>名誉教授</span>
-            </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
               <span style="font-weight: bolder">荣誉称号取得时间：</span>
-            </div>
-            <div class="content">
-              <span>2003.3.3</span>
             </div>
           </div>
         </el-col>
@@ -314,18 +287,12 @@
             <div class="biaoqian">
               <span style="font-weight: bolder">专业发展称号：</span>
             </div>
-            <div class="content">
-              <span>学科带头人</span>
-            </div>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="single">
             <div class="biaoqian">
               <span style="font-weight: bolder">专业发展称号取得时间：</span>
-            </div>
-            <div class="content">
-              <span>2019.4.3</span>
             </div>
           </div>
         </el-col>
@@ -335,8 +302,6 @@
           <div class="single">
             <div class="biaoqian">
               <span style="font-weight: bolder">任现职以来担任学校工作：</span>
-            </div>
-            <div class="content">
               <span>科研</span>
             </div>
           </div>
@@ -345,8 +310,6 @@
           <div class="single">
             <div class="biaoqian">
               <span style="font-weight: bolder">担任工作起始时间：</span>
-            </div>
-            <div class="content">
               <span>2003.3.3</span>
             </div>
           </div>
@@ -355,100 +318,173 @@
           <div class="single">
             <div class="biaoqian">
               <span style="font-weight: bolder">担任工作结束时间：</span>
-            </div>
-            <div class="content">
               <span>2003.3.4</span>
             </div>
           </div>
         </el-col>
       </el-row>
       <el-divider/>
+      <h4>部门意见</h4>
+      <div>
+        <el-row>
+          <el-col :span="6">
+            信息属实
+          </el-col>
+          <el-col :span="6">
+            <span>审核时间：</span>
+            <span>2019-12-04</span>
+          </el-col>
+          <el-col :span="6">
+            <span>审核人：</span>
+            <span>刘明至</span>
+          </el-col>
+          <el-col :span="5">
+            <span>审核状态</span>
+            <el-tag type="success" size="small">通过</el-tag>
+          </el-col>
+        </el-row>
+      </div>
+      <el-divider />
+      <h4>系部意见</h4>
+      <div>
+        <el-row>
+          <el-col :span="6">
+            批准通过
+          </el-col>
+          <el-col :span="6">
+            <span>审核时间：</span>
+            <span>2019-12-04</span>
+          </el-col>
+          <el-col :span="5">
+            <span>审核人：</span>
+            <span>郭志</span>
+          </el-col>
+          <el-col :span="5">
+            <span>审核状态</span>
+            <el-tag type="success">通过</el-tag>
+          </el-col>
+        </el-row>
+      </div>
+      <el-divider />
       <div>
         <el-row style="padding-top: 10px">
-          <span style="font-weight: bolder">审核原因</span>
+          <span style="font-weight: bolder">科研处意见</span>
         </el-row>
         <el-row style="padding-top: 10px">
           <el-input
             :rows="4"
             v-model="AuditingReason"
-            :disabled="false"
             type="textarea"
-            placeholder="请输入内容(审核通过无需输入)"/>
+            placeholder="请输入内容"/>
         </el-row>
       </div>
       <div class="foot">
         <span slot="footer" class="dialog-footer">
-          <el-button type="success" size="small" plain>审核通过</el-button>
-          <el-button type="danger" size="small" plain>审核未通过</el-button>
-          <el-button type="primary" @click="zhuanyeVisible = false">关闭</el-button>
+          <el-button type="success" size="small" plain @click="pass">审核通过</el-button>
+          <el-button type="danger" size="small" plain @click="pass">审核未通过</el-button>
+          <el-button type="primary" @click="zhuanyeVisible = false" size="small" plain>关闭</el-button>
         </span>
       </div>
     </el-dialog>
     <el-dialog :visible.sync="workVisible" title="审核详情">
       <el-row :gutter="20" style="padding-top: 10px">
-        <el-col :span="1">
-          <span style="font-weight: bolder">xxx</span>
+        <el-col :span="8">
+          <span style="font-weight: bolder">姓名：</span>
+          <span>王老师</span>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="8">
           <div class="biaoqian">
             <span style="font-weight: bolder">工作单位：</span>
-          </div>
-          <div class="content">
             <span>大学</span>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="8">
           <div class="biaoqian">
             <span style="font-weight: bolder">担任职务：</span>
-          </div>
-          <div class="content">
             <span>讲师</span>
           </div>
         </el-col>
-        <el-col :span="4">
+      </el-row>
+      <el-row :gutter="20" style="padding-top: 10px">
+        <el-col :span="8">
           <div class="biaoqian">
             <span style="font-weight: bolder">开始时间：</span>
-          </div>
-          <div class="content">
             <span>2000</span>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="8">
           <div class="biaoqian">
             <span style="font-weight: bolder">结束时间：</span>
-          </div>
-          <div class="content">
             <span>xxxxxx</span>
           </div>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="8">
           <div class="biaoqian">
             <span style="font-weight: bolder">证明人：</span>
-          </div>
-          <div class="content">
             <span>王老师</span>
           </div>
         </el-col>
       </el-row>
       <el-divider/>
+      <h4>部门意见</h4>
+      <div>
+        <el-row>
+          <el-col :span="6">
+            信息属实
+          </el-col>
+          <el-col :span="6">
+            <span>审核时间：</span>
+            <span>2019-12-04</span>
+          </el-col>
+          <el-col :span="6">
+            <span>审核人：</span>
+            <span>刘明至</span>
+          </el-col>
+          <el-col :span="5">
+            <span>审核状态</span>
+            <el-tag type="success" size="small">通过</el-tag>
+          </el-col>
+        </el-row>
+      </div>
+      <el-divider />
+      <h4>系部意见</h4>
+      <div>
+        <el-row>
+          <el-col :span="6">
+           批准通过
+          </el-col>
+          <el-col :span="6">
+            <span>审核时间：</span>
+            <span>2019-12-04</span>
+          </el-col>
+          <el-col :span="5">
+            <span>审核人：</span>
+            <span>郭志</span>
+          </el-col>
+          <el-col :span="5">
+            <span>审核状态</span>
+            <el-tag type="success">通过</el-tag>
+          </el-col>
+        </el-row>
+      </div>
+      <el-divider />
       <div>
         <el-row style="padding-top: 10px">
-          <span style="font-weight: bolder">审核原因</span>
+          <span style="font-weight: bolder">科研处意见</span>
         </el-row>
         <el-row style="padding-top: 10px">
           <el-input
             :rows="4"
             v-model="AuditingReason"
-            :disabled="false"
             type="textarea"
-            placeholder="请输入内容(审核通过无需输入)"/>
+            placeholder="请输入内容"/>
         </el-row>
       </div>
       <div class="foot">
         <span slot="footer" class="dialog-footer">
-           <el-button type="success" size="small" plain>审核通过</el-button>
-          <el-button type="danger" size="small" plain>审核未通过</el-button>
-          <el-button type="primary" @click="zhuanyeVisible = false">关闭</el-button>
+           <el-button type="success" size="small" plain @click="pass">审核通过</el-button>
+          <el-button type="danger" size="small" plain @click="pass">审核未通过</el-button>
+          <el-button type="primary" @click="zhuanyeVisible = false" size="small" plain>关闭</el-button>
         </span>
       </div>
     </el-dialog>
@@ -460,6 +496,8 @@
     name: 'peopleApproval',
     data(){
       return{
+        currentPage: 1,
+        pagesize: 5,
         AuditingReason:'',
         zhuanyeVisible:false,
         workVisible:false,
@@ -473,6 +511,8 @@
             subdate:'2019-9-2',
             approvaldate:'2020-1-2',
             approval:'待通过',
+            department: '理学院',
+            name: '基本信息修改'
           },
           {
             number:'2',
@@ -482,6 +522,8 @@
             subdate:'2017-9-2',
             approvaldate:'2018-1-2',
             approval:'待通过',
+            department: '理学院',
+            name: '基本信息修改',
           },
           {
             number:'3',
@@ -491,6 +533,19 @@
             subdate:'2019-4-2',
             approvaldate:'2019-5-2',
             approval:'待通过',
+            department: '理学院',
+            name: '基本信息修改',
+          },
+          {
+            number:'4',
+            sub:'工作经历',
+            applypeople:'赵老师',
+            approvalpeople:'刘老师',
+            subdate:'2019-12-21',
+            approvaldate:'2019-5-2',
+            approval:'待通过',
+            department: '理学院',
+            name: '基本信息修改',
           },
         ]
       }
@@ -504,13 +559,21 @@
         }else if(sub === '工作经历'){
           this.workVisible =true;
         }
+      },
+      pass(){
+        this.$message({
+          type: 'success',
+          message: '审核成功',
+          }
+        )
       }
     }
   }
 </script>
 
 <style scoped>
-.foot{
-  text-align: center;
-}
+  .foot{
+    text-align: center;
+    margin-top: 20px;
+  }
 </style>

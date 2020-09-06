@@ -63,41 +63,47 @@
         <el-table
           :data="projectData"
           border
-          style="width: 70%">
+          style="width: 100%">
           <el-table-column
             prop="projectname"
             label="项目名称"
             align="center"
-            width="180">
+            >
+          </el-table-column>
+          <el-table-column
+            prop="projectuser"
+            label="项目负责人"
+            align="center"
+          >
           </el-table-column>
           <el-table-column
             prop="projectsub"
             label="项目类型"
             align="center"
-            width="180">
+            >
           </el-table-column>
           <el-table-column
             prop="projectclass"
             label="项目级别"
             align="center"
-            width="180">
+            >
           </el-table-column>
           <el-table-column
             prop="date"
             label="完成时间"
             align="center"
-            width="180">
+            >
           </el-table-column>
           <el-table-column
             prop="score"
             label="分值"
             align="center"
-            width="180">
+            >
           </el-table-column>
-          <el-table-column
-            align="center"
-            label="操作">
-          </el-table-column>
+<!--          <el-table-column-->
+<!--            align="center"-->
+<!--            label="操作">-->
+<!--          </el-table-column>-->
         </el-table>
       </div>
       <el-dialog :visible.sync="dialogPvVisible" title="新增积分">
@@ -397,6 +403,7 @@
               projectname:'自然语言处理问答系统',
               projectsub:'个人项目',
               projectclass:'省级',
+              projectuser:'刘老师',
               date:'2019-9-8',
               score:'5'
             },
@@ -404,6 +411,7 @@
                 projectname:'专业智能知识库建设',
                 projectsub:'教学建设',
                 projectclass:'省级',
+                projectuser:'王老师',
                 date:'2020-3-4',
                 score:'5'
               },
@@ -411,6 +419,7 @@
                 projectname:'NLP语言智能识别',
                 projectsub:'学术科研',
                 projectclass:'国家级',
+                projectuser:'李老师',
                 date:'2019-7-6',
                 score:'10'
               },
@@ -418,6 +427,7 @@
                 projectname:'校园大数据中心建设',
                 projectsub:'集体项目',
                 projectclass:'厅级',
+                projectuser:'张老师',
                 date:'2020-4-5',
                 score:'8'
               }],
