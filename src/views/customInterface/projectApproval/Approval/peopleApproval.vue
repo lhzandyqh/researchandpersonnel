@@ -26,7 +26,6 @@
     </el-table>
     <div style="text-align: center; margin-top: 10px;">
       <el-pagination
-        background
         @current-change="handleCurrentChange"
         :current-page="currentPage"
         :page-size="pagesize"
@@ -207,13 +206,13 @@
             <span>审核时间：</span>
             <span>2019-12-04</span>
           </el-col>
-          <el-col :span="5">
+          <el-col :span="6">
             <span>审核人：</span>
             <span>郭志</span>
           </el-col>
           <el-col :span="5">
             <span>审核状态</span>
-            <el-tag type="success">通过</el-tag>
+            <el-tag type="success" size="small">通过</el-tag>
           </el-col>
         </el-row>
       </div>
@@ -355,13 +354,13 @@
             <span>审核时间：</span>
             <span>2019-12-04</span>
           </el-col>
-          <el-col :span="5">
+          <el-col :span="6">
             <span>审核人：</span>
             <span>郭志</span>
           </el-col>
           <el-col :span="5">
             <span>审核状态</span>
-            <el-tag type="success">通过</el-tag>
+            <el-tag type="success" size="small">通过</el-tag>
           </el-col>
         </el-row>
       </div>
@@ -457,13 +456,13 @@
             <span>审核时间：</span>
             <span>2019-12-04</span>
           </el-col>
-          <el-col :span="5">
+          <el-col :span="6">
             <span>审核人：</span>
             <span>郭志</span>
           </el-col>
           <el-col :span="5">
             <span>审核状态</span>
-            <el-tag type="success">通过</el-tag>
+            <el-tag type="success" size="small">通过</el-tag>
           </el-col>
         </el-row>
       </div>

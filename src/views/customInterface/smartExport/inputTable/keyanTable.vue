@@ -15,7 +15,7 @@
     </el-row>
     <el-table
       ref="multipleTable"
-      :data="tableData.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+      :data="tableData"
       tooltip-effect="dark"
       style="width: 100%"
       @selection-change="handleSelectionChange">
@@ -23,31 +23,43 @@
         v-if="piliangFlag"
         type="selection"
         width="55"/>
+<!--      <el-table-column-->
+<!--        label="编号">-->
+<!--        <template slot-scope="scope">{{ scope.row.id }}</template>-->
+<!--      </el-table-column>-->
       <el-table-column
-        label="编号">
-        <template slot-scope="scope">{{ scope.row.id }}</template>
-      </el-table-column>
+        prop="id_num"
+        label="项目编号"
+      width="100px"/>
+      <el-table-column
+        prop="tDept"
+        label="项目名称"
+        width="280px"/>
+      <el-table-column
+        prop="projectClass"
+        label="项目级别"
+      />
       <el-table-column
         prop="username"
         label="项目带头人"/>
       <el-table-column
-        prop="tDept"
-        label="项目信息"/>
-      <el-table-column
-        prop="id_num"
-        label="项目编号"/>
+        prop="department"
+        label="主管部门"/>
       <el-table-column
         prop="positionSalary"
         label="项目资金"/>
       <el-table-column
-        prop="scaleSalary"
-        label="开题日期"/>
+        prop="bdate"
+        label="开题日期"
+      />
       <el-table-column
-        prop="scaleSalary"
-        label="中期日期"/>
+        prop="mdate"
+        label="中期日期"
+        />
       <el-table-column
-        prop="scaleSalary"
-        label="结束日期"/>
+        prop="fdate"
+        label="结题日期"
+        width="100px"/>
     </el-table>
     <div v-if=" piliangFlag" style="margin-top: 20px">
       <el-button @click="beginPiliang">工资设置</el-button>
@@ -122,7 +134,116 @@
         salaryFlag: false,
         piliangFlag: false,
         multipleSelection: [],
-        tableData: [],
+        tableData: [
+          {
+            id_num:'IM567382',
+            tDept:'大数据与智慧校园建设',
+            projectClass:'国家级',
+            username:'王立民',
+            department:'计算机学院',
+            positionSalary:'400000',
+            bdate:'2019-2-3',
+            mdate:'2019-8-9',
+            fdate:'2020-8-9',
+          },
+          {
+            id_num:'IM564382',
+            tDept:'先进计算与内生安全技术',
+            projectClass:'国家级',
+            username:'刘老师',
+            department:'软件学院',
+            positionSalary:'1000000',
+            bdate:'2018-2-3',
+            mdate:'2019-8-9',
+            fdate:'2020-5-9',
+          },
+          {
+            id_num:'IM598542',
+            tDept:'新时代背景下智慧检务建设路径选择',
+            projectClass:'国家级',
+            username:'王方林',
+            department:'计算机学院',
+            positionSalary:'800000',
+            bdate:'2019-8-3',
+            mdate:'2019-12-9',
+            fdate:'2020-9-9',
+          },
+          {
+            id_num:'IM508u36',
+            tDept:'基于关系图谱的人岗关系研究',
+            projectClass:'省部级',
+            username:'郭梦洁',
+            department:'计算机学院',
+            positionSalary:'800000',
+            bdate:'2020-2-3',
+            mdate:'2020-6-9',
+            fdate:'2020-8-9',
+          },
+          {
+            id_num:'IM567382',
+            tDept:'智慧公共文化服务研究',
+            projectClass:'国家级',
+            username:'李民',
+            department:'社科学院',
+            positionSalary:'70000',
+            bdate:'2019-2-3',
+            mdate:'2019-8-9',
+            fdate:'2020-8-9',
+          },
+          {
+            id_num:'IM567382',
+            tDept:'移动社交网络情境化推荐',
+            projectClass:'省级',
+            username:'王立民',
+            department:'计算机学院',
+            positionSalary:'400000',
+            bdate:'2019-2-3',
+            mdate:'2019-8-9',
+            fdate:'2020-8-9',
+          },
+          {
+            id_num:'IM567382',
+            tDept:'公共图书馆数据素养教育体系探析',
+            projectClass:'国家级',
+            username:'王立民',
+            department:'计算机学院',
+            positionSalary:'400000',
+            bdate:'2019-2-3',
+            mdate:'2019-8-9',
+            fdate:'2020-8-9',
+          },
+          {
+            id_num:'IM567382',
+            tDept:'面向新基建的电力电源方案',
+            projectClass:'国家级',
+            username:'王伟',
+            department:'电力学院',
+            positionSalary:'400000',
+            bdate:'2019-2-3',
+            mdate:'2019-8-9',
+            fdate:'2020-8-9',
+          }, {
+            id_num:'IM567382',
+            tDept:'BIM技术在轨道交通工程中的应用',
+            projectClass:'国家级',
+            username:'李民',
+            department:'建筑学院',
+            positionSalary:'400000',
+            bdate:'2019-2-3',
+            mdate:'2019-8-9',
+            fdate:'2020-8-9',
+          }, {
+            id_num:'IM567382',
+            tDept:'光伏发电远程传输质量实时监测研究',
+            projectClass:'省级',
+            username:'张强',
+            department:'电力学院',
+            positionSalary:'400000',
+            bdate:'2019-2-3',
+            mdate:'2019-8-9',
+            fdate:'2020-8-9',
+          },
+        ],
         pagesize: 10,
         currentPage: 1,
         teacherNameArray: [],

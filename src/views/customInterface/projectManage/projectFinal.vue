@@ -3,49 +3,37 @@
     <el-row style="margin: 10px 10px 10px 20px">
       <el-col :span="24">
         <el-button  @click="changeinfo" style="float: right; padding: 3px 0;margin-right: 15px" size="medium" type="text">新增结题</el-button>
-        <!--        <span style="font-weight: bolder;color:#409EFF;margin-bottom: 10px">表类</span>-->
       </el-col>
     </el-row>
     <el-divider></el-divider>
     <el-table
       :data="tableData"
-      border
+      stripe
       style="width: 100%">
       <el-table-column
         prop="name"
         label="课题名称"
-        align="center"
-        width="200">
-      </el-table-column>
+        />
       <el-table-column
         prop="people"
         label="结题评审专家"
-        align="center"
-        width="180">
-      </el-table-column>
+        />
       <el-table-column
         prop="people"
         label="项目负责人"
-        align="center"
-        width="150">
-      </el-table-column>
+        />
       <el-table-column
         prop="date"
         label="结题答辩时间"
-        align="center"
-        width="150">
-      </el-table-column>
+        />
       <el-table-column
         prop="score"
         label="结题评议结果"
-        align="center"
-        width="150">
-      </el-table-column>
+        />
       <el-table-column
+        prop="ziliao"
         label="附件资料"
-        align="center"
-        width="120">
-      </el-table-column>
+        />
       <el-table-column
         label="操作"
         align="center"
@@ -392,7 +380,7 @@
                         :auto-upload="false"
                       >
                         <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-                        <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submitUpload">上传</el-button>
+                        <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submit">上传</el-button>
                       </el-upload>
                       </div>
                     </div>
@@ -577,7 +565,7 @@
         </el-tabs>
         <div slot="footer" class="dialog-footer">
           <el-button @click="changeketi = false">取 消</el-button>
-          <el-button @click="changeketi = false" type="primary">确 定</el-button>
+          <el-button @click="submit" type="primary">确 定</el-button>
         </div>
       </el-dialog>
     </div>
@@ -597,23 +585,27 @@ export default {
         score:'优秀',
         name: '学生心理模型测评',
         people:'王老师',
+        ziliao:'项目结题汇总.pdf'
 
       }, {
         date: '2019-03-04',
         score:'良好',
         name: '自然语言处理问答系统',
         people:'刘老师',
+        ziliao:'系统设计结题报告.doc'
 
       }, {
         date: '2019-12-01',
         name: '高点探测智能分析',
         score:'优秀',
         people:'李老师',
+        ziliao:'结题分析报告.doc'
       }, {
         date: '2020-03-01',
         name: 'NLP语言智能识别',
         score:'优秀',
         people:'李老师',
+        ziliao:'结题.doc'
       }]
     }
   },
@@ -623,6 +615,13 @@ export default {
     },
     changeinfo(){
       this.changeketi = true
+    },
+    submit(){
+      this.changeketi = false
+      this.$message({
+        type:'success',
+        message:'提交成功'
+      })
     }
   }
 }

@@ -1,5 +1,11 @@
 <template>
     <div class="app-container">
+      <el-card class="box-card">
+        <el-row gutter="20">
+          <el-col :span="8">
+          </el-col>
+        </el-row>
+      </el-card>
       <div style="margin-bottom: 20px">
         <div style="margin-bottom: 20px;margin-left: 20px;font-weight: bold;font-size:18px">
           <span>精准查询</span>
@@ -144,5 +150,11 @@
 </script>
 
 <style scoped>
-
+  .box-card {
+    width: 100%;
+    height: 100%;
+  }
+  /deep/ .el-card__body{
+    height: 100vh;
+  }
 </style>

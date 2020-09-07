@@ -134,7 +134,7 @@
           </el-col>
           <el-col :span="5">
             <span>审核状态</span>
-            <el-tag type="success">通过</el-tag>
+            <el-tag type="success" size="small">通过</el-tag>
           </el-col>
         </el-row>
       </div>
@@ -167,6 +167,7 @@
     name: 'projectApproval',
     data(){
       return{
+        AuditingReason:'',
         projectVisible:false,
         workVisible:false,
         jibenVisible:false,

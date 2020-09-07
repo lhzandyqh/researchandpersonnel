@@ -414,7 +414,7 @@
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="dialogVisible = false">取 消</el-button>
-          <el-button type="primary">确 定</el-button>
+          <el-button type="primary" @click="submit">确 定</el-button>
         </div>
       </el-dialog>
     </div>
@@ -562,7 +562,7 @@
         </el-row>
         <div slot="footer" class="dialog-footer">
           <el-button >取 消</el-button>
-          <el-button type="primary">确 定</el-button>
+          <el-button type="primary" @click="change">确 定</el-button>
         </div>
       </el-dialog>
     </div>
@@ -941,6 +941,18 @@ export default {
     onSubmit() {
       console.log('submit!')
     },
+    submit(){
+      this.$message({
+        type:'success',
+        message:'提交成功'
+      })
+    },
+    change(){
+      this.$message({
+        type:'success',
+        message:'修改成功'
+      })
+    },
     submitUpload() {
       this.$refs.upload.submit()
     },
@@ -968,6 +980,10 @@ export default {
       }
     },
     confirmEditJiben: function() {
+      this.$message({
+        type:'success',
+        message:'修改成功'
+      })
       this.basicDialogVisible = false
     },
     notEditProfessionalAbility: function() {

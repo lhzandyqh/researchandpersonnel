@@ -62,49 +62,43 @@
         <el-divider/>
         <el-table
           :data="projectData"
-          border
+          stripe
           style="width: 100%">
           <el-table-column
             prop="projectname"
             label="项目名称"
-            align="center"
-            >
-          </el-table-column>
+            />
           <el-table-column
             prop="projectuser"
             label="项目负责人"
-            align="center"
-          >
-          </el-table-column>
+            />
           <el-table-column
             prop="projectsub"
             label="项目类型"
-            align="center"
-            >
-          </el-table-column>
+           />
           <el-table-column
             prop="projectclass"
             label="项目级别"
-            align="center"
-            >
-          </el-table-column>
+            />
           <el-table-column
             prop="date"
             label="完成时间"
-            align="center"
-            >
-          </el-table-column>
+            />
           <el-table-column
             prop="score"
             label="分值"
-            align="center"
-            >
-          </el-table-column>
-<!--          <el-table-column-->
-<!--            align="center"-->
-<!--            label="操作">-->
-<!--          </el-table-column>-->
+           />
         </el-table>
+        <div style="text-align: center; margin-top: 10px;">
+          <el-pagination
+            @current-change="2"
+            :current-page="1"
+            :page-size="pagesize"
+            :page-sizes="[5, 10]"
+            :total="projectData.length"
+            layout="total, sizes, prev, pager, next, jumper"
+          />
+        </div>
       </div>
       <el-dialog :visible.sync="dialogPvVisible" title="新增积分">
         <el-form ref="form" label-width="150px" style="margin: 20px 0;">
@@ -382,6 +376,7 @@
         name: "index",
       data(){
           return{
+            pagesize: 5,
             value2: '',
             option2: [{
               value: '院级课题',
