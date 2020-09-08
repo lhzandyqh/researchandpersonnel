@@ -5,32 +5,24 @@
         <el-tab-pane label="个人信息">
           <el-table
             :data="tableData"
-            border
+            stripe
             style="width: 100%">
             <el-table-column
               prop="name"
-              align="center"
               label="表名"
-              width="220">
-            </el-table-column>
+              />
             <el-table-column
               prop="personname"
-              align="center"
               label="审核人"
-              width="220">
-            </el-table-column>
+              />
             <el-table-column
               prop="indate"
-              align="center"
               label="填写日期"
-              width="220">
-            </el-table-column>
+              />
             <el-table-column
               prop="lastdate"
-              align="center"
               label="有效期"
-              width="220">
-            </el-table-column>
+             />
             <el-table-column
               label="操作"
               align="center"
@@ -45,32 +37,24 @@
         <el-tab-pane label="科研信息">
           <el-table
             :data="tableData"
-            border
+            stripe
             style="width: 100%">
             <el-table-column
               prop="name"
               label="表名"
-              align="center"
-              width="220">
-            </el-table-column>
+              />
             <el-table-column
               prop="personname"
-              align="center"
               label="审核人"
-              width="220">
-            </el-table-column>
+              />
             <el-table-column
               prop="indate"
-              align="center"
               label="填写日期"
-              width="220">
-            </el-table-column>
+              />
             <el-table-column
               prop="lastdate"
-              align="center"
               label="有效期"
-              width="220">
-            </el-table-column>
+             />
             <el-table-column
               label="操作"
               align="center"
@@ -83,8 +67,68 @@
           </el-table>
         </el-tab-pane>
         <el-tab-pane label="项目报批">
+          <el-table
+            :data="tableData"
+            stripe
+            style="width: 100%">
+            <el-table-column
+              prop="name"
+              label="表名"
+            />
+            <el-table-column
+              prop="personname"
+              label="审核人"
+            />
+            <el-table-column
+              prop="indate"
+              label="填写日期"
+            />
+            <el-table-column
+              prop="lastdate"
+              label="有效期"
+            />
+            <el-table-column
+              label="操作"
+              align="center"
+            >
+              <template slot-scope="scope">
+                <el-button @click="openpdf" type="text" size="medium" style="margin-right: 15px">预览</el-button>
+                <a href="../../static/test1.pdf" class="download" download="test.pdf" title="下载" style="color: #00a4ff">点击下载</a>
+              </template>
+            </el-table-column>
+          </el-table>
         </el-tab-pane>
         <el-tab-pane label="项目管理">
+          <el-table
+            :data="tableData"
+            stripe
+            style="width: 100%">
+            <el-table-column
+              prop="name"
+              label="表名"
+            />
+            <el-table-column
+              prop="personname"
+              label="审核人"
+            />
+            <el-table-column
+              prop="indate"
+              label="填写日期"
+            />
+            <el-table-column
+              prop="lastdate"
+              label="有效期"
+            />
+            <el-table-column
+              label="操作"
+              align="center"
+            >
+              <template slot-scope="scope">
+                <el-button @click="openpdf" type="text" size="medium" style="margin-right: 15px">预览</el-button>
+                <a href="../../static/test1.pdf" class="download" download="test.pdf" title="下载" style="color: #00a4ff">点击下载</a>
+              </template>
+            </el-table-column>
+          </el-table>
         </el-tab-pane>
       </el-tabs>
     </el-row>
@@ -157,6 +201,6 @@ export default {
   }
   .pdfcard{
     width: 100%;
-    height: 700px;
+    height: 100vh;
   }
 </style>

@@ -8,39 +8,44 @@
         <el-button style="float: right;margin-right: 15px" type="text">修改</el-button>
         <el-table
           :data="tableData"
-          border
-          style="width: 100%">
+          style="width: 100%"
+          stripe
+        >
           <el-table-column
             prop="papername"
-            align="center"
             label="论文名称"
-            width="270"/>
+            />
           <el-table-column
             prop="isauthor"
-            align="center"
             label="是否第一作者"
-            width="110"/>
+            />
           <el-table-column
             prop="publication"
-            align="center"
             label="发表刊物"
-            width="220"/>
+            />
           <el-table-column
             prop="press"
-            align="center"
             label="出版社"
-            width="220"/>
+          />
           <el-table-column
             prop="pubtime"
-            align="center"
             label="发表时间"
-            width="120"/>
+            />
           <el-table-column
             prop="enclosure"
-            align="center"
             label="附件"
             />
         </el-table>
+        <div style="text-align: center; margin-top: 10px;">
+          <el-pagination
+            @current-change="2"
+            :current-page="1"
+            :page-size="pagesize"
+            :page-sizes="[5, 10]"
+            :total="tableData.length"
+            layout="total, sizes, prev, pager, next, jumper"
+          />
+        </div>
       </el-tab-pane>
       <el-tab-pane label="三大检索论文登记">
           <h4 style="text-align: center;margin: 28px 0px 0px 0px;"> 三大检索论文登记表</h4>
@@ -48,39 +53,43 @@
           <el-button style="float: right;margin-right: 15px" type="text">修改</el-button>
           <el-table
             :data="tableData"
-            border
-            style="width: 100%">
+            style="width: 100%"
+          stripe>
             <el-table-column
               prop="papername"
-              align="center"
               label="论文名称"
-              width="270"/>
+            />
             <el-table-column
               prop="isauthor"
-              align="center"
               label="是否第一作者"
-              width="110"/>
+            />
             <el-table-column
               prop="publication"
-              align="center"
               label="发表刊物"
-              width="220"/>
+              />
             <el-table-column
               prop="press"
-              align="center"
               label="出版社"
-              width="220"/>
+              />
             <el-table-column
               prop="pubtime"
-              align="center"
               label="发表时间"
-              width="120"/>
+              />
             <el-table-column
               prop="enclosure"
-              align="center"
               label="附件"
             />
           </el-table>
+        <div style="text-align: center; margin-top: 10px;">
+          <el-pagination
+            @current-change="2"
+            :current-page="1"
+            :page-size="pagesize"
+            :page-sizes="[5, 10]"
+            :total="tableData.length"
+            layout="total, sizes, prev, pager, next, jumper"
+          />
+        </div>
       </el-tab-pane>
       <el-tab-pane label="非核心论文登记">
         <h4 style="text-align: center;margin: 28px 0px 0px 0px;">非核心论文登记表</h4>
@@ -88,39 +97,43 @@
         <el-button style="float: right;margin-right: 15px" type="text">修改</el-button>
         <el-table
           :data="tableData"
-          border
-          style="width: 100%">
+          style="width: 100%"
+        stripe>
           <el-table-column
             prop="papername"
-            align="center"
             label="论文名称"
-            width="270"/>
+           />
           <el-table-column
             prop="isauthor"
-            align="center"
             label="是否第一作者"
-            width="110"/>
+            />
           <el-table-column
             prop="publication"
-            align="center"
             label="发表刊物"
-            width="220"/>
+            />
           <el-table-column
             prop="press"
-            align="center"
             label="出版社"
-            width="220"/>
+            />
           <el-table-column
             prop="pubtime"
-            align="center"
             label="发表时间"
-            width="120"/>
+            />
           <el-table-column
             prop="enclosure"
-            align="center"
             label="附件"
           />
         </el-table>
+        <div style="text-align: center; margin-top: 10px;">
+          <el-pagination
+            @current-change="2"
+            :current-page="1"
+            :page-size="pagesize"
+            :page-sizes="[5, 10]"
+            :total="tableData.length"
+            layout="total, sizes, prev, pager, next, jumper"
+          />
+        </div>
       </el-tab-pane>
       <el-tab-pane label="专著登记">
         <h4 style="text-align: center;margin: 28px 0px 0px 0px;">专著登记表</h4>
@@ -128,39 +141,43 @@
         <el-button style="float: right;margin-right: 15px" type="text">修改</el-button>
         <el-table
           :data="tableData"
-          border
+          stripe
           style="width: 100%">
           <el-table-column
             prop="papername"
-            align="center"
             label="专著名称"
-            width="270"/>
+            />
           <el-table-column
             prop="isauthor"
-            align="center"
             label="专著类型"
-            width="110"/>
+            />
           <el-table-column
             prop="publication"
-            align="center"
             label="发表刊物"
-            width="220"/>
+            />
           <el-table-column
             prop="press"
-            align="center"
             label="出版社"
-            width="220"/>
+           />
           <el-table-column
             prop="pubtime"
-            align="center"
             label="发表时间"
-            width="120"/>
+           />
           <el-table-column
             prop="enclosure"
-            align="center"
             label="附件"
           />
         </el-table>
+        <div style="text-align: center; margin-top: 10px;">
+          <el-pagination
+            @current-change="2"
+            :current-page="1"
+            :page-size="pagesize"
+            :page-sizes="[5, 10]"
+            :total="tableData.length"
+            layout="total, sizes, prev, pager, next, jumper"
+          />
+        </div>
       </el-tab-pane>
       <el-tab-pane label="专利申报">
         <h4 style="text-align: center;margin: 28px 0px 0px 0px;">专利申报表</h4>
@@ -168,39 +185,43 @@
         <el-button style="float: right;margin-right: 15px" type="text">修改</el-button>
         <el-table
           :data="tableData"
-          border
+          stripe
           style="width: 100%">
           <el-table-column
             prop="papername"
-            align="center"
             label="专利名称"
-            width="250"/>
+           />
           <el-table-column
             prop="isauthor"
-            align="center"
             label="专利编号"
-            width="140"/>
+          />
           <el-table-column
             prop="publication"
-            align="center"
             label="申请人(单位)"
-            width="220"/>
+            />
           <el-table-column
             prop="press"
-            align="center"
             label="通讯地址"
-            width="220"/>
+           />
           <el-table-column
             prop="pubtime"
-            align="center"
             label="申请时间"
-            width="120"/>
+            />
           <el-table-column
             prop="enclosure"
-            align="center"
             label="附件"
           />
         </el-table>
+        <div style="text-align: center; margin-top: 10px;">
+          <el-pagination
+            @current-change="2"
+            :current-page="1"
+            :page-size="pagesize"
+            :page-sizes="[5, 10]"
+            :total="tableData.length"
+            layout="total, sizes, prev, pager, next, jumper"
+          />
+        </div>
       </el-tab-pane>
     </el-tabs>
     <div>
@@ -234,13 +255,13 @@
               :auto-upload="false"
             >
               <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-              <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submitUpload">上传</el-button>
+              <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submit">上传</el-button>
             </el-upload>
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="dialogVisiblePatent = false">取 消</el-button>
-          <el-button type="primary" @click="addPatent">确 定</el-button>
+          <el-button type="primary" @click="addPatent" >确 定</el-button>
         </div>
       </el-dialog>
     </div>
@@ -275,7 +296,7 @@
               :auto-upload="false"
             >
               <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-              <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submitUpload">上传</el-button>
+              <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submit">上传</el-button>
             </el-upload>
           </el-form-item>
         </el-form>
@@ -317,7 +338,7 @@
               :auto-upload="false"
             >
               <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-              <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submitUpload">上传</el-button>
+              <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submit">上传</el-button>
             </el-upload>
           </el-form-item>
         </el-form>
@@ -361,7 +382,7 @@
               :auto-upload="false"
             >
               <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-              <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submitUpload">上传</el-button>
+              <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submit">上传</el-button>
             </el-upload>
           </el-form-item>
         </el-form>
@@ -405,7 +426,7 @@
               :auto-upload="false"
             >
               <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-              <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submitUpload">上传</el-button>
+              <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submit">上传</el-button>
             </el-upload>
           </el-form-item>
         </el-form>
@@ -423,6 +444,7 @@ export default {
   name: 'ManyTimesCollection',
   data() {
     return {
+      pagesize: 10,
       // fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
       form: {
 
@@ -474,25 +496,47 @@ export default {
       tableData: [{
         papername: '大数据研究',
         isauthor: '是',
-        publication: '中文核心刊物',
+        publication: '软件学报',
         press:'北京出版社',
         pubtime:'2020-8-20',
-        enclosure:'证明材料.doc'
+        enclosure:'附件材料.doc'
       }, {
-        papername: '大数据研究',
+        papername: '自然语言问答系统',
         isauthor: '是',
-        publication: '中文核心刊物',
+        publication: '计算机学报',
         press:'北京出版社',
         pubtime:'2020-8-20',
-        enclosure:'证明材料.doc'
+        enclosure:'附件材料.doc'
       }, {
-        papername: '大数据研究',
+        papername: '供电系统研究',
         isauthor: '是',
-        publication: '中文核心刊物',
+        publication: '辅助设计',
         press:'北京出版社',
         pubtime:'2020-8-20',
-        enclosure:'证明材料.doc'
-      }],
+        enclosure:'附件材料.doc'
+      },{
+        papername: '大数据下的可视化进展',
+        isauthor: '是',
+        publication: '计算机学报',
+        press:'北京出版社',
+        pubtime:'2020-8-20',
+        enclosure:'附件材料.doc'
+      },{
+        papername: '大屏可视化',
+        isauthor: '是',
+        publication: '计算机学报',
+        press:'北京出版社',
+        pubtime:'2020-8-20',
+        enclosure:'附件材料.doc'
+      },{
+        papername: '智慧校园建设',
+        isauthor: '是',
+        publication: '计算机学报',
+        press:'北京出版社',
+        pubtime:'2020-8-20',
+        enclosure:'附件材料.doc'
+      }
+      ],
       fileList: '',
 
     }
@@ -500,6 +544,12 @@ export default {
   methods: {
     onSubmit() {
       console.log('submit!')
+    },
+    submit(){
+      this.$message({
+        type:'success',
+        message:'提交成功'
+      })
     },
     submitUpload() {
       this.$refs.upload.submit()
@@ -515,11 +565,18 @@ export default {
       this.dialogVisible = true
     },
     addChinesePaper: function() {
-      console.log('我点了')
+      this.$message({
+        type:'success',
+        message:'提交成功'
+      })
       this.dialogVisible = false
     },
     addPatent: function() {
       console.log('我点了')
+        this.$message({
+          type:'success',
+          message:'提交成功'
+        })
       this.dialogVisiblePatent = false
     },
     openPatentDialog: function() {
@@ -527,7 +584,10 @@ export default {
       this.dialogVisiblePatent = true
     },
     addMonographs: function() {
-      console.log('我点了')
+      this.$message({
+        type:'success',
+        message:'提交成功'
+      })
       this.dialogVisibleMonographs = false
     },
     openMonographsDialog: function() {
@@ -535,7 +595,10 @@ export default {
       this.dialogVisibleMonographs = true
     },
     addNoncore: function() {
-      console.log('我点了')
+      this.$message({
+        type:'success',
+        message:'提交成功'
+      })
       this.dialogVisibleNoncore = false
     },
     openNoncoreDialog: function() {
@@ -543,7 +606,10 @@ export default {
       this.dialogVisibleNoncore = true
     },
     addThrees: function() {
-      console.log('我点了')
+      this.$message({
+        type:'success',
+        message:'提交成功'
+      })
       this.dialogVisibleThrees = false
     },
     openThreesDialog: function() {

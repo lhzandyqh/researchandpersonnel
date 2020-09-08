@@ -291,6 +291,6 @@ export default {
     text-align: center;
   }
   .img_con {
-    text-align: center;
+    margin: auto;
   }
 </style>

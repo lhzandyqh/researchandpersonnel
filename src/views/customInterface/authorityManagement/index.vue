@@ -40,39 +40,34 @@
       <el-row>
           <el-table
             :data="tableData"
-            border
+            stripe
             style="width: 100%">
             <el-table-column
               prop="number"
-              align="center"
               label="编号"
-              width="50">
-            </el-table-column>
+              width="100px"
+            />
             <el-table-column
               prop="name"
               label="教师姓名"
-              align="center"
-              width="160">
-            </el-table-column>
+              />
             <el-table-column
               prop="college"
               label="学院"
-              align="center"
-              width="160">
-            </el-table-column>
+             />
             <el-table-column
               prop="department"
               label="部门"
-              align="center"
-              width="160">
-            </el-table-column>
+              />
             <el-table-column
               prop="title"
-              align="center"
               label="职称"
-              width="140">
-            </el-table-column>
-            <el-table-column prop="quanxian" align="center" label="权限展示">
+              />
+            <el-table-column
+              prop="ifwork"
+              label="工作状态"
+            />
+            <el-table-column prop="quanxian" label="权限展示">
 <!--                        <template slot-scope="scope">-->
 <!--                          <el-select v-model="scope.row.userrole" placeholder="权限" @change="eidtAuthority(scope.row.userid, scope.row.userrole)">-->
 <!--                            <el-option label="教师" value="教师"/>-->
@@ -144,6 +139,7 @@
             department: '科研处',
             title: '讲师',
             quanxian:'教师',
+            ifwork:'在职'
           }, {
             number:'2',
             name: '李老师',
@@ -152,6 +148,7 @@
             department: '教务处',
             title: '教授',
             quanxian:'教师 科研主管',
+            ifwork:'在职'
           }, {
             number:'3',
             name: '刘老师',
@@ -160,6 +157,7 @@
             department: '审计处',
             title: '讲师',
             quanxian:'教师 系部主管',
+            ifwork:'离岗'
           }, {
             number:'4',
             name: '赵老师',
@@ -168,6 +166,7 @@
             department: '电教设备处',
             title: '讲师',
             quanxian:'教师 系部主管 科研主管',
+            ifwork:'在职'
           },
             {
               number:'5',
@@ -177,6 +176,7 @@
               department: '科研处',
               title: '讲师',
               quanxian:'教师 系部主管',
+              ifwork:'在职'
             }],
           pagesize: 10,
           currentPage: 1,

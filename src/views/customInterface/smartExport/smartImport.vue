@@ -16,17 +16,14 @@
         <div style="margin-left: 20px">
           <el-button type="primary" plain @click="excelImportShow = true" >批量导入</el-button>
         </div>
-<!--        <div style="margin-left: 20px">-->
-<!--          <el-button type="success" plain >批量导出</el-button>-->
-<!--        </div>-->
       </div>
     </el-row>
     <el-divider/>
-    <div v-if="typeValue=='科研信息'">
+    <div v-if="typeValue=='项目信息'">
       <keyan-table></keyan-table>
     </div>
-    <div v-if="typeValue=='职称信息'">
-      <job-title-table/>
+    <div v-if="typeValue=='科研信息'">
+      <paper-table/>
     </div>
     <el-dialog :visible.sync="excelImportShow" width="21%" title="导入文件">
       <div><el-button type="text" @click="downloadText">点击下载</el-button>Excel模板 </div>
@@ -61,20 +58,21 @@
 
 <script>
   import keyanTable from '@/views/customInterface/smartExport/inputTable/keyanTable'
+  import paperTable from '@/views/customInterface/smartExport/inputTable/paperTable'
 export default {
   name: 'SmartImport',
   components: {
-    keyanTable
+    keyanTable,paperTable
   },
   data() {
     return {
       excelImportShow: false,
-      typeValue: '科研信息',
+      typeValue: '项目信息',
       options: [
-        // {
-        //   value: '教师基本信息',
-        //   label: '教师基本信息'
-        // },
+        {
+          value: '项目信息',
+          label: '项目信息'
+        },
         {
           value: '科研信息',
           label: '科研信息'

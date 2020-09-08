@@ -125,7 +125,7 @@
               </el-col>
             </el-row>
             <el-row style="margin-top: 20px">
-              <span>项目方案：</span>
+              <div style="margin-bottom: 10px"><span >项目方案：</span></div>
               <el-input
                 v-model="textarea2"
                 type="textarea"
@@ -134,7 +134,7 @@
               />
             </el-row>
             <el-row style="margin-top: 20px">
-              <span>技术指标：</span>
+              <div style="margin-bottom: 10px"><span >技术指标：</span></div>
               <el-input
                 v-model="textarea2"
                 type="textarea"
@@ -162,7 +162,7 @@
           <div class="button_container">
             <div style="float: right">
               <el-button size="small" type="success">重置</el-button>
-              <el-button size="small" type="primary">提交</el-button>
+              <el-button size="small" type="primary" @click="submit">提交</el-button>
             </div>
           </div>
         </div>
@@ -204,6 +204,14 @@ export default {
       }],
       time: ''
     }
+  },
+  methods: {
+    submit() {
+      this.$message({
+        type:'success',
+        message:'提交成功'
+      })
+  }
   }
 }
 </script>

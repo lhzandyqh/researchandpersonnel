@@ -3,49 +3,37 @@
     <el-row style="margin: 10px 10px 10px 20px">
       <el-col :span="24">
         <el-button  @click="changeinfo" style="float: right; padding: 3px 0;margin-right: 15px" size="medium" type="text">新增开题</el-button>
-<!--        <span style="font-weight: bolder;color:#409EFF;margin-bottom: 10px">表类</span>-->
       </el-col>
     </el-row>
     <el-divider></el-divider>
     <el-table
       :data="tableData"
-      border
+      stripe
       style="width: 100%">
       <el-table-column
         prop="name"
         label="课题名称"
-        align="center"
-        width="200">
-      </el-table-column>
+       />
       <el-table-column
         prop="people"
         label="开题评审专家"
-        align="center"
-        width="180">
-      </el-table-column>
+       />
       <el-table-column
         prop="people"
         label="项目负责人"
-        align="center"
-        width="150">
-      </el-table-column>
+      />
       <el-table-column
         prop="date"
         label="开题时间"
-        align="center"
-        width="150">
-      </el-table-column>
+    />
       <el-table-column
         prop="score"
         label="开题评议结果"
-        align="center"
-        width="150">
-      </el-table-column>
+      />
       <el-table-column
+        prop="ziliao"
         label="附件资料"
-        align="center"
-        width="120">
-      </el-table-column>
+      />
       <el-table-column
         label="操作"
         align="center"
@@ -174,7 +162,7 @@
                         <span style="font-weight: bolder">职称：</span>
                       </div>
                       <div class="content">
-                        <span>讲师</span>
+                        <span>教授</span>
                       </div>
                     </div>
                   </el-col>
@@ -184,7 +172,7 @@
                         <span style="font-weight: bolder">职务：</span>
                       </div>
                       <div class="content">
-                        <span>讲师</span>
+                        <span>科研负责人</span>
                       </div>
                     </div>
                   </el-col>
@@ -196,7 +184,7 @@
                         <span style="font-weight: bolder">成员2姓名：</span>
                       </div>
                       <div class="content">
-                        <span>王三</span>
+                        <span>刘伟</span>
                       </div>
                     </div>
                   </el-col>
@@ -238,7 +226,7 @@
                         <span style="font-weight: bolder">成员3姓名：</span>
                       </div>
                       <div class="content">
-                        <span>王三</span>
+                        <span>张强</span>
                       </div>
                     </div>
                   </el-col>
@@ -285,8 +273,15 @@
               </el-row>
               <el-row :gutter="20" style="padding-top: 10px">
                 <el-col :span="24">
-                  <p>大数据（big data），IT行业术语，是指无法在一定时间范围内用常规软件工具进行捕捉、管理和处理的数据集合，是需要新处理模式才能具有更强的决策力、洞察发现力和流程优化能力的海量、高增长率和多样化的信息资产。
-                    在维克托·迈尔-舍恩伯格及肯尼斯·库克耶编写的《大数据时代》 [1]  中大数据指不用随机分析法（抽样调查）这样捷径，而采用所有数据进行分析处理。大数据的5V特点（IBM提出）：Volume（大量）、Velocity（高速）、Variety（多样）、Value（低价值密度）、Veracity（真实性）。</p>
+                  <p>当前,我们的世界已经迈入大数据(big data)时代.随着互联网、物联网、云计算等信息技术的迅猛发展,信
+                    息技术与人类世界政治、经济、军事、科研、生活等方方面面不断交叉融合,催生了超越以往任何年代的巨量
+                    数据.遍布世界各地的各种智能移动设备、传感器、电子商务网站、社交网络每时每刻都在生成类型各异的数
+                    据.截至2012 年,全世界每天产生2.5EB(2.51018)的数据(http://www.ibm.com/big-data/us/en/).大数据具有4V 特
+                    征,即:体量巨大(volume)、类型繁多(variety)、时效性高(velocity)以及价值高密度低(value),给人们带来了新的
+                    机遇与挑战.《Nature》于2008 年出版了大数据专刊“big data”,专门讨论了巨量数据对于互联网、经济、环境
+                    以及生物等各方面的影响与挑战[1].《Science》也于2011 年出版了如何应对数据洪流(data deluge)的专刊
+                    “Dealing with Data”[2],指出如何利用宝贵的数据资产推动人类社会的发展.如今,大数据已成为新兴的学术研究
+                    热点,并被认为是继云计算和物联网之后又一个具有革命性的信息技术.</p>
                 </el-col>
               </el-row>
             </el-card>
@@ -392,7 +387,7 @@
                         :auto-upload="false"
                       >
                         <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-                        <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submitUpload">上传</el-button>
+                        <el-button style="margin-left: 10px;background: #42b983" size="small" type="success" @click="submit">上传</el-button>
                       </el-upload>
                       </div>
                     </div>
@@ -577,7 +572,7 @@
         </el-tabs>
         <div slot="footer" class="dialog-footer">
           <el-button @click="changeketi = false">取 消</el-button>
-          <el-button @click="changeketi = false" type="primary">确 定</el-button>
+          <el-button @click="submit" type="primary">确 定</el-button>
         </div>
       </el-dialog>
     </div>
@@ -597,18 +592,49 @@ export default {
         score:'优秀',
         name: '大数据产业',
         people:'王老师',
+        ziliao:'项目调研报告.doc'
 
       }, {
         date: '2016-05-04',
         score:'良好',
         name: '自然语言处理问答系统',
         people:'刘老师',
+        ziliao:'系统设计报告.doc'
 
       }, {
         date: '2016-05-01',
         name: '前端可视化',
         score:'优秀',
         people:'李老师',
+        ziliao:'展示图片.png'
+
+      }, {
+        date: '2016-05-04',
+        score:'良好',
+        name: '降糖贴剂：胰岛素无痛给药先行者',
+        people:'刘老师',
+        ziliao:'项目设计.doc'
+
+      },{
+        date: '2016-05-04',
+        score:'良好',
+        name: '协同制造云服务',
+        people:'刘老师',
+        ziliao:'项目可行性分析.doc'
+
+      },{
+        date: '2016-05-04',
+        score:'良好',
+        name: '物联网建设',
+        people:'刘老师',
+        ziliao:'项目调研.doc'
+
+      },{
+        date: '2016-05-04',
+        score:'优秀',
+        name: '智慧校园建设',
+        people:'刘老师',
+        ziliao:'智慧校园建设方案.doc'
 
       }]
     }
@@ -619,6 +645,13 @@ export default {
     },
     changeinfo(){
       this.changeketi = true
+    },
+    submit(){
+      this.changeketi = false
+      this.$message({
+        type:'success',
+        message:'提交成功'
+      })
     }
   }
 

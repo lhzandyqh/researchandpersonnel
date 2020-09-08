@@ -7,23 +7,15 @@
       <el-button @click="begin = true">项目开题评议结果</el-button>
       <el-button @click="middle = true">项目中期答辩情况</el-button>
       <el-button @click="end = true">项目结题报告</el-button>
-      <table border="1" class="tb">
+      <table border="0" class="tb">
         <tr v-if="name">
           <td>项目名称：</td>
           <td></td>
         </tr>
-<!--        <tr v-else>-->
-<!--          <td></td>-->
-<!--          <td></td>-->
-<!--        </tr>-->
         <tr v-if="minzu">
           <td>项目负责人：</td>
           <td></td>
         </tr>
-<!--        <tr v-else>-->
-<!--          <td></td>-->
-<!--          <td></td>-->
-<!--        </tr>-->
         <tr v-if="process">
           <td>项目进度：</td>
           <td></td>
@@ -40,10 +32,6 @@
           <td>项目结题报告：</td>
           <td></td>
         </tr>
-<!--        <tr v-else>-->
-<!--          <td></td>-->
-<!--          <td></td>-->
-<!--        </tr>-->
       </table>
       <el-button type="primary" @click="open">点击生成模板</el-button>
     </div>
