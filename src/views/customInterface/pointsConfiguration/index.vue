@@ -4,25 +4,25 @@
         <el-row :gutter="1">
           <el-col :span="2">
             <div class="selector">
-              <span style="font-size: 15px;font-weight: bolder;margin-left: 15px">项目类型:</span>
+              <span style="font-size: 15px;font-weight: bolder;margin-left: 15px">积分类型:</span>
             </div>
           </el-col>
           <el-col :span="3">
             <el-select v-model="listQuery.qualification_type" placeholder="积分类型" clearable class="filter-item">
-              <el-option label="个人项目" value="个人项目"/>
-              <el-option label="集体项目" value="集体项目"/>
-              <el-option label="教学建设" value="教学建设"/>
-              <el-option label="学术科研" value="学术科研"/>
+              <el-option label="课题项目" value="课题项目"/>
+              <el-option label="学术论文" value="学术论文"/>
+              <el-option label="科研专利" value="科研专利"/>
+              <el-option label="科研专著" value="科研专著"/>
             </el-select>
           </el-col>
           <el-col :span="2" style="margin-left: 20px;margin-right: 0px">
             <div class="selector">
-              <span style="font-size: 15px;font-weight: bolder;margin-left: 15px">项目级别:</span>
+              <span style="font-size: 15px;font-weight: bolder;margin-left: 15px">积分级别:</span>
             </div>
           </el-col>
           <el-col :span="3">
             <div style="margin-left: 0px">
-              <el-select v-model="value2" style="padding: 0px 0px 0px 0px" placeholder="项目级别">
+              <el-select v-model="value2" style="padding: 0px 0px 0px 0px" placeholder="积分级别">
                 <el-option
                   v-for="item in option2"
                   :key="item.value"
@@ -32,30 +32,35 @@
               </el-select>
             </div>
           </el-col>
-          <el-col :span="2" style="margin-left: 20px;margin-right: 0px">
-            <div class="selector">
-              <span style="font-size: 15px;font-weight: bolder;margin-left: 15px">积分类型:</span>
+          <el-col :span="3">
+            <div class="add">
+              <el-button class="filter-item"  type="primary">查询</el-button>
             </div>
           </el-col>
-          <el-col :span="4">
-            <div class="select">
-              <el-select v-model="type_select_value" placeholder="请选择您的积分类型" >
-                                      <el-option label="学术成果积分配置" value="xueshu"/>
-                                      <el-option label="项目课题积分配置" value="yanjiuke"/>
-                                      <el-option label="学术讲座与经验分享积分配置" value="jinyan"/>
-                                      <el-option label="教育教学评比竞赛积分配置" value="jingsai"/>
-                                      <el-option label="研究课积分配置" value="yanjiu"/>
-                                      <el-option label="教育教学成果获奖积分配置" value="jiaoyu"/>
-                                      <el-option label="教师指导学生参加学科比赛获奖情况积分配置" value="xueke"/>
-                                      <el-option label="艺科体社团积分配置" value="yike"/>
-                                      <el-option label="行政获奖积分配置" value="xinzheng"/>
-                                      <el-option label="校本培训积分配置" value="xiaoben"/>
-                </el-select>
-            </div>
-          </el-col>
+<!--          <el-col :span="2" style="margin-left: 20px;margin-right: 0px">-->
+<!--            <div class="selector">-->
+<!--              <span style="font-size: 15px;font-weight: bolder;margin-left: 15px">积分类型:</span>-->
+<!--            </div>-->
+<!--          </el-col>-->
+<!--          <el-col :span="4">-->
+<!--            <div class="select">-->
+<!--              <el-select v-model="type_select_value" placeholder="请选择您的积分类型" >-->
+<!--                                      <el-option label="学术成果积分配置" value="xueshu"/>-->
+<!--                                      <el-option label="项目课题积分配置" value="yanjiuke"/>-->
+<!--                                      <el-option label="学术讲座与经验分享积分配置" value="jinyan"/>-->
+<!--                                      <el-option label="教育教学评比竞赛积分配置" value="jingsai"/>-->
+<!--                                      <el-option label="研究课积分配置" value="yanjiu"/>-->
+<!--                                      <el-option label="教育教学成果获奖积分配置" value="jiaoyu"/>-->
+<!--                                      <el-option label="教师指导学生参加学科比赛获奖情况积分配置" value="xueke"/>-->
+<!--                                      <el-option label="艺科体社团积分配置" value="yike"/>-->
+<!--                                      <el-option label="行政获奖积分配置" value="xinzheng"/>-->
+<!--                                      <el-option label="校本培训积分配置" value="xiaoben"/>-->
+<!--                </el-select>-->
+<!--            </div>-->
+<!--          </el-col>-->
           <el-col :span="6">
             <div class="add">
-              <el-button class="filter-item" style="margin-left: 10px;float: right" type="primary" icon="el-icon-edit" @click="dialogPvVisible = true">新增积分</el-button>
+              <el-button class="filter-item" style="margin-left: 10px;float: right" type="primary" icon="el-icon-edit" @click="dialogPvVisible = true">新增积分规则配置</el-button>
             </div>
           </el-col>
         </el-row>
@@ -100,266 +105,129 @@
           />
         </div>
       </div>
-      <el-dialog :visible.sync="dialogPvVisible" title="新增积分">
+      <el-dialog :visible.sync="dialogPvVisible" title="新增积分规则配置">
         <el-form ref="form" label-width="150px" style="margin: 20px 0;">
           <el-form-item label="请选择您的积分项目">
             <el-select v-model="t_qualification_name" placeholder="请选择您的积分项目" >
-              <el-option label="学术成果积分配置" value="xueshu"/>
-              <el-option label="项目课题积分配置" value="xiangmu"/>
-              <el-option label="学术讲座与经验分享积分配置" value="jinyan"/>
-              <el-option label="教育教学评比竞赛积分配置" value="jingsai"/>
-              <el-option label="研究课积分配置" value="yanjiu"/>
-              <el-option label="教育教学成果获奖积分配置" value="jiaoyu"/>
-              <el-option label="教师指导学生参加学科比赛获奖情况积分配置" value="xueke"/>
-              <el-option label="艺科体社团积分配置" value="yike"/>
-              <el-option label="行政获奖积分配置" value="xinzheng"/>
-              <el-option label="校本培训积分配置" value="xiaoben"/>
+              <el-option label="课题项目" value="ktxm"/>
+              <el-option label="学术论文" value="xslw"/>
+              <el-option label="科研专利" value="kyzl"/>
+              <el-option label="科研著作" value="kyzz"/>
             </el-select>
           </el-form-item>
         </el-form>
         <el-divider/>
-        <el-row v-if="t_qualification_name==='xueshu'">
-          <el-form ref="xueshuform" :model="xueshuform" label-width="200px">
-            <el-form-item label="学术成果载体类型">
-              <el-select v-model="xueshuform.type" placeholder="请选择学术成果载体类型" style="width: 60%;">
-                <el-option label="论文" value="论文"/>
-                <el-option label="专著" value="专著"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="是否第一作者">
-              <el-select v-model="xueshuform.first" placeholder="请选择是否第一作者">
-                <el-option label="是" value="是"/>
-                <el-option label="否" value="否"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="刊物等级（出版社等级）">
-              <el-select v-model="xueshuform.rank" placeholder="请选择刊物等级（出版社等级）">
-                <el-option label="核心期刊" value="核心期刊"/>
-                <el-option label="一般期刊" value="一般期刊"/>
-                <el-option label="区级" value="区级"/>
-                <el-option label="校级" value="校级"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="分值" style="width: 400px">
-              <el-input v-model="xueshuform.score"/>
-            </el-form-item>
-          </el-form>
-        </el-row>
-        <el-row v-if="t_qualification_name==='xiangmu'">
-          <el-form ref="yanjiukeform" :model="yanjiukeform" label-width="100px">
+        <el-row v-if="t_qualification_name==='ktxm'">
+          <el-form ref="ktxmform" :model="ktxmform" label-width="200px">
             <el-form-item label="课题级别">
-              <el-select v-model="yanjiukeform.rank" placeholder="请选择课题级别">
+              <el-select v-model="ktxmform.rank" placeholder="请选择课题级别">
                 <el-option label="国家级" value="国家级"/>
+                <el-option label="省级" value="省级"/>
                 <el-option label="区级" value="区级"/>
                 <el-option label="市级" value="市级"/>
                 <el-option label="校级" value="校级"/>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="课题类型">
+              <el-select v-model="ktxmform.type" placeholder="请选择课题级别">
+                <el-option label="个人项目" value="国家级"/>
+                <el-option label="教学建设" value="省级"/>
+                <el-option label="学术科研" value="区级"/>
+                <el-option label="集体科研" value="市级"/>
               </el-select>
             </el-form-item>
             <el-form-item label="个人角色">
-              <el-select v-model="yanjiukeform.role" placeholder="请选择个人角色">
+              <el-select v-model="ktxmform.role" placeholder="请选择个人角色">
                 <el-option label="主持" value="主持"/>
                 <el-option label="参与" value="参与"/>
               </el-select>
+              <el-input v-model="input" style="width: 200px" placeholder="分值比率"></el-input>
             </el-form-item>
-            <el-form-item label="分值" style="width: 400px">
-              <el-input v-model="yanjiukeform.score"/>
+            <el-form-item label="基础分值" style="width: 400px">
+              <el-input v-model="ktxmform.score"/>
             </el-form-item>
           </el-form>
         </el-row>
-        <el-row v-if="t_qualification_name==='jinyan'">
-          <el-form ref="jinyanform" :model="jinyanform" label-width="100px">
-            <el-form-item label="活动类型">
-              <el-select v-model="jinyanform.type" placeholder="请选择活动类型">
-                <el-option label="教育教学研讨会" value="教育教学研讨会"/>
-                <el-option label="中科玉兰学术讲坛" value="中科玉兰学术讲坛"/>
-                <el-option label="进修材料分析" value="进修材料分析"/>
+        <el-row v-if="t_qualification_name==='xslw'">
+          <el-form ref="xslwform" :model="xslwform" label-width="200px">
+            <el-form-item label="论文级别">
+              <el-select v-model="xslwform.rank" placeholder="请选择论文级别">
+                <el-option label="T类 特种刊物论文" value="特种刊物论文"/>
+                <el-option label="A类 权威核心刊物论文" value="权威核心刊物论文"/>
+                <el-option label="B类 重要核心刊物论文" value="重要核心刊物论文"/>
+                <el-option label="C类 一般核心刊物论文" value="一般核心刊物论文"/>
+                <el-option label="D类 一般公开刊物论文" value="一般公开刊物论文"/>
+                <el-option label="E类 受限公开刊物论文" value="受限公开刊物论文"/>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="作者类别">
+              <el-select v-model="xslwform.role" placeholder="请选择作者类别">
+                <el-option label="第一作者" value="第一作者"/>
+                <el-option label="第二作者" value="第二作者"/>
+                <el-option label="第三作者" value="第三作者"/>
                 <el-option label="其他" value="其他"/>
               </el-select>
+              <el-input v-model="input" style="width: 200px" placeholder="分值比率"></el-input>
             </el-form-item>
-            <el-form-item label="课题级别">
-              <el-select v-model="jinyanform.rank" placeholder="请选择课题级别">
-                <el-option label="国家级" value="国家级"/>
-                <el-option label="区级" value="区级"/>
-                <el-option label="市级" value="市级"/>
-                <el-option label="校级" value="校级"/>
-                <el-option label="教研组" value="教研组"/>
-                <el-option label="年级组" value="年级组"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="分值" style="width: 400px">
-              <el-input v-model="jinyanform.score"/>
+            <el-form-item label="基础分值" style="width: 400px">
+              <el-input v-model="xslwform.score"/>
             </el-form-item>
           </el-form>
         </el-row>
-        <el-row v-if="t_qualification_name==='jingsai'">
-          <el-form ref="jinsaiform" :model="jinsaiform" label-width="100px">
-            <el-form-item label="竞赛类型">
-              <el-select v-model="jinsaiform.type" placeholder="请选择获奖级别">
-                <el-option label="论文案例" value="论文案例"/>
-                <el-option label="现场课" value="现场课"/>
-                <el-option label="说课" value="说课"/>
-                <el-option label="基本功" value="基本功"/>
-                <el-option label="其他" value="其他"/>
+        <el-row v-if="t_qualification_name==='kyzl'">
+          <el-form ref="kyzlform" :model="kyzlform" label-width="200px">
+            <el-form-item label="专利类型">
+              <el-select v-model="kyzlform.rank" placeholder="请选择专利类型">
+                <el-option label="发明专利" value="特种刊物论文"/>
+                <el-option label="实用新型专利" value="实用新型专利"/>
+                <el-option label="软件著作权" value="软件著作权"/>
               </el-select>
             </el-form-item>
-            <el-form-item label="获奖级别">
-              <el-select v-model="jinsaiform.rank" placeholder="请选择获奖级别">
-                <el-option label="国家级" value="国家级"/>
-                <el-option label="区级" value="区级"/>
-                <el-option label="市级" value="市级"/>
-                <el-option label="校级" value="校级"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="获奖等级">
-              <el-select v-model="jinsaiform.denji" placeholder="请选择获奖等级">
-                <el-option label="一等奖" value="一等奖"/>
-                <el-option label="二等奖" value="二等奖"/>
-                <el-option label="三等奖" value="三等奖"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="分值" style="width: 400px">
-              <el-input v-model="jinsaiform.score"/>
+<!--            <el-form-item label="作者类别">-->
+<!--              <el-select v-model="yanjiukeform.role" placeholder="请选择作者类别">-->
+<!--                <el-option label="第一作者" value="第一作者"/>-->
+<!--                <el-option label="第二作者" value="第二作者"/>-->
+<!--                <el-option label="第三作者" value="第三作者"/>-->
+<!--                <el-option label="其他" value="其他"/>-->
+<!--              </el-select>-->
+<!--              <el-input v-model="input" style="width: 200px" placeholder="分值比率"></el-input>-->
+<!--            </el-form-item>-->
+            <el-form-item label="基础分值" style="width: 400px">
+              <el-input v-model="kyzlform.score"/>
             </el-form-item>
           </el-form>
         </el-row>
-        <el-row v-if="t_qualification_name==='yanjiu'">
-          <el-form ref="yanjiuform" :model="yanjiuform" label-width="100px">
-            <el-form-item label="研究课类型">
-              <el-select v-model="yanjiuform.type" placeholder="研究课类型">
-                <el-option label="公开课" value="公开课"/>
-                <el-option label="主题课" value="主题课"/>
-                <el-option label="观摩课" value="观摩课"/>
-                <el-option label="班会展示" value="班会展示"/>
+        <el-row v-if="t_qualification_name==='kyzz'">
+          <el-form ref="kyzzform" :model="kyzzform" label-width="200px">
+            <el-form-item label="著作类型">
+              <el-select v-model="kyzzform.rank" placeholder="请选择专利类型">
+                <el-option label="专著" value="专著"/>
+                <el-option label="编著" value="编著"/>
+                <el-option label="译著" value="译著"/>
+                <el-option label="研究报告" value="研究报告"/>
               </el-select>
             </el-form-item>
-            <el-form-item label="展示级别">
-              <el-select v-model="yanjiuform.rank" placeholder="请选择展示级别">
-                <el-option label="国家级" value="国家级"/>
-                <el-option label="区级" value="区级"/>
-                <el-option label="市级" value="市级"/>
-                <el-option label="校级" value="校级"/>
+            <el-form-item label="著作级别">
+              <el-select v-model="kyzzform.rank" placeholder="请选择专利类型">
+                <el-option label="T" value="T"/>
+                <el-option label="A" value="A"/>
+                <el-option label="B" value="B"/>
+                <el-option label="C" value="C"/>
+                <el-option label="D" value="D"/>
+                <el-option label="E" value="E"/>
               </el-select>
             </el-form-item>
-            <el-form-item label="分值" style="width: 400px">
-              <el-input v-model="yanjiuform.score"/>
-            </el-form-item>
-          </el-form>
-        </el-row>
-        <el-row v-if="t_qualification_name==='jiaoyu'">
-          <el-form ref="jiaoyuform" :model="jiaoyuform" label-width="100px">
-            <el-form-item label="获奖级别">
-              <el-select v-model="jiaoyuform.region" placeholder="请选择获奖级别">
-                <el-option label="国家级" value="国家级"/>
-                <el-option label="区级" value="区级"/>
-                <el-option label="市级" value="市级"/>
-                <el-option label="校级" value="校级"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="获奖等级">
-              <el-select v-model="jiaoyuform.rank" placeholder="请选择获奖等级">
-                <el-option label="一等奖" value="一等奖"/>
-                <el-option label="二等奖" value="二等奖"/>
-                <el-option label="三等奖" value="三等奖"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="获奖角色">
-              <el-select v-model="jiaoyuform.role" placeholder="请选择获奖角色">
-                <el-option label="参与" value="参与"/>
-                <el-option label="主持" value="主持"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="分值" style="width: 400px">
-              <el-input v-model="jiaoyuform.score"/>
-            </el-form-item>
-          </el-form>
-        </el-row>
-        <el-row v-if="t_qualification_name==='xueke'">
-          <el-form ref="xuekeform" :model="xuekeform" label-width="100px">
-            <el-form-item label="学科" style="width: 200px">
-              <el-input v-model="xuekeform.subject"/>
-            </el-form-item>
-            <el-form-item label="获奖级别">
-              <el-select v-model="xuekeform.region" placeholder="请选择获奖级别">
-                <el-option label="国家级" value="国家级"/>
-                <el-option label="区级" value="区级"/>
-                <el-option label="市级" value="市级"/>
-                <el-option label="校级" value="校级"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="获奖等级">
-              <el-select v-model="xuekeform.rank" placeholder="请选择获奖等级">
-                <el-option label="一等奖" value="一等奖"/>
-                <el-option label="二等奖" value="二等奖"/>
-                <el-option label="三等奖" value="三等奖"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="分值" style="width: 400px">
-              <el-input v-model="xuekeform.score"/>
-            </el-form-item>
-          </el-form>
-        </el-row>
-        <el-row v-if="t_qualification_name==='yike'">
-          <el-form ref="yikeform" :model="yikeform" label-width="100px">
-            <el-form-item label="比赛类别">
-              <el-select v-model="yikeform.type" placeholder="请选择比赛类别">
-                <el-option label="艺术" value="艺术"/>
-                <el-option label="科技" value="科技"/>
-                <el-option label="体育" value="体育"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="获奖级别">
-              <el-select v-model="yikeform.rank" placeholder="请选择获奖级别">
-                <el-option label="一等奖" value="一等奖"/>
-                <el-option label="二等奖" value="二等奖"/>
-                <el-option label="三等奖" value="三等奖"/>
-                <el-option label="其他" value="其他"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="分值" style="width: 400px">
-              <el-input v-model="yikeform.score"/>
-            </el-form-item>
-          </el-form>
-        </el-row>
-        <el-row v-if="t_qualification_name==='xinzheng'">
-          <el-form ref="xinzhengform" :model="xinzhengform" label-width="100px">
-            <el-form-item label="获奖级别">
-              <el-select v-model="xinzhengform.region" placeholder="请选择获奖级别">
-                <el-option label="国家级" value="国家级"/>
-                <el-option label="区级" value="区级"/>
-                <el-option label="市级" value="市级"/>
-                <el-option label="校级" value="校级"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="获奖等级">
-              <el-select v-model="xinzhengform.rank" placeholder="请选择获奖等级">
-                <el-option label="一等奖" value="一等奖"/>
-                <el-option label="二等奖" value="二等奖"/>
-                <el-option label="三等奖" value="三等奖"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="获奖形式">
-              <el-select v-model="xinzhengform.form" placeholder="请选择获奖等级">
-                <el-option label="团队" value="团队"/>
-                <el-option label="个人" value="个人"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="分值" style="width: 400px">
-              <el-input v-model="xinzhengform.score"/>
-            </el-form-item>
-          </el-form>
-        </el-row>
-        <el-row v-if="t_qualification_name==='xiaoben'">
-          <el-form ref="xiaobenform" :model="xiaobenform" label-width="100px">
-            <el-form-item label="培训类型">
-              <el-select v-model="xiaobenform.type" placeholder="请选择培训类型">
-                <el-option label="全校大会" value="全校大会"/>
-                <el-option label="教研组会" value="教研组会"/>
-                <el-option label="年级组会" value="年级组会"/>
-                <el-option label="专题培训" value="专题培训"/>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="分值" style="width: 400px">
-              <el-input v-model="xiaobenform.score"/>
+            <!--            <el-form-item label="作者类别">-->
+            <!--              <el-select v-model="yanjiukeform.role" placeholder="请选择作者类别">-->
+            <!--                <el-option label="第一作者" value="第一作者"/>-->
+            <!--                <el-option label="第二作者" value="第二作者"/>-->
+            <!--                <el-option label="第三作者" value="第三作者"/>-->
+            <!--                <el-option label="其他" value="其他"/>-->
+            <!--              </el-select>-->
+            <!--              <el-input v-model="input" style="width: 200px" placeholder="分值比率"></el-input>-->
+            <!--            </el-form-item>-->
+            <el-form-item label="基础分值" style="width: 400px">
+              <el-input v-model="kyzzform.score"/>
             </el-form-item>
           </el-form>
         </el-row>
@@ -438,6 +306,30 @@
               rank: '',
               score: ''
             },
+            ktxmform: {
+              type: '',
+              first: '',
+              rank: '',
+              score: ''
+            },
+            xslwform: {
+              type: '',
+              first: '',
+              rank: '',
+              score: ''
+            },
+            kyzlform: {
+              type: '',
+              first: '',
+              rank: '',
+              score: ''
+            },
+            kyzzform: {
+              type: '',
+              first: '',
+              rank: '',
+              score: ''
+            },
             yanjiukeform: {
               role: '',
               rank: '',
@@ -486,8 +378,8 @@
               type: '',
               score: ''
             },
-            t_qualification_name: 'xueshu',
-            type_select_value: 'xueshu',
+            t_qualification_name: 'ktxm',
+            type_select_value: 'ktxm',
           }
      }
     }

@@ -37,7 +37,7 @@
           </el-row>
           <el-row>
             <el-col :span="14">
-             <chart_three></chart_three>
+<!--             <chart_three></chart_three>-->
             </el-col>
 
           </el-row>
@@ -138,14 +138,14 @@ import chartSix from '@/views/customInterface/homePage/echart/chart_six'
 import chartSeven from '@/views/customInterface/homePage/echart/chart_seven'
 import chartEight from '@/views/customInterface/homePage/echart/chart_eight'
 import chartNine from '@/views/customInterface/homePage/echart/chart_nine'
-import chart_three from './echart/chart_three'
+// import chart_three from './echart/chart_three'
 export default {
   name: 'Index',
   components: {
     chartOne,
     chartTwo,
     chartFour,
-    chart_three,
+    // chart_three,
     chartFive,
     chartSix,
     chartSeven,

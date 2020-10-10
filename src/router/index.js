@@ -178,7 +178,7 @@ export const asyncRoutes = [
         component: () => import('@/views/customInterface/dataColletion/manyTimesCollection'),
         name: 'manytimes',
         meta: {
-          title: '科研成果',
+          title: '科研能力',
           roles: ['admin', '教师'] // or you can only set roles in sub nav
         }
       },
