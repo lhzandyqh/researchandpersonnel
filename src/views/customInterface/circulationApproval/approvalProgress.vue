@@ -27,7 +27,6 @@
                 <el-col :span="4">
                   <div>
                     <el-button type="text" @click="openDialog">查看详情</el-button>
-                    <el-button type="text">导出</el-button>
                   </div>
                 </el-col>
               </el-row>
@@ -57,7 +56,6 @@
                 <el-col :span="4">
                   <div>
                     <el-button type="text">查看详情</el-button>
-                    <el-button type="text">导出</el-button>
                   </div>
                 </el-col>
               </el-row>
@@ -87,7 +85,6 @@
                 <el-col :span="4">
                   <div>
                     <el-button type="text">查看详情</el-button>
-                    <el-button type="text">导出</el-button>
                   </div>
                 </el-col>
               </el-row>
@@ -117,7 +114,6 @@
                 <el-col :span="4">
                   <div>
                     <el-button type="text">查看详情</el-button>
-                    <el-button type="text">导出</el-button>
                   </div>
                 </el-col>
               </el-row>

@@ -10,237 +10,136 @@
         登录
       </div>
     </div>
-    <div class="card w clearfix" style="margin-top: 60px">
-      <div class="card_container ">
-        <div class="box-hd">
-          <h3>校园风采</h3>
-          <a href="#">查看更多</a>
-        </div>
-        <div class="card_body">
-          <div class="kapian">
-            <el-carousel height="300px">
-              <el-carousel-item v-for="(item, index) in schna" :key="index">
-                <img :src="item" alt="">
-              </el-carousel-item>
-            </el-carousel>
-          </div>
-        </div>
-      </div>
-      <div class="card_container ">
-        <div class="box-hd">
-          <h3>新闻通知</h3>
-          <a href="#">查看更多</a>
-        </div>
-        <div class="card_body">
-          <div class="kapian">
-            <ul>
-              <li>
-                <img src="../../assets/img/tupian4.jpg">
-                <div class="left">
-                  <span>财政部关于印发《中央财政科研项目专家咨询费管理办法》的通知</span>
-                </div>
-                <div class="right">
-                  <div class="first_line">
-                    <!--                    <img class="img" src="../../assets/icon/dianzan.png">-->
-                  </div>
-                  <div class="second_line">
-                    <span>评论：32</span>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <img src="../../assets/img/tupian5.jpg">
-                <div class="left">
-                  <span>过好“紧日子” 花好每笔钱——聚焦2020年中央部门“晒预算”</span>
-                </div>
-                <div class="right">
-                  <div class="first_line">
-                    <!--                    <img class="img" src="../../assets/icon/dianzan.png">-->
-                  </div>
-                  <div class="second_line">
-                    <span>评论：22</span>
-                  </div>
-                </div>
-              </li>
-              <li class="noline">
-                <img src="../../assets/img/tupian6.jpg">
-                <div class="left">
-                  <span>科技日报：整治形式主义始终在路上</span>
-                </div>
-                <div class="right">
-                  <div class="first_line">
-                    <!--                    <img class="img" src="../../assets/icon/dianzan.png">-->
-                  </div>
-                  <div class="second_line">
-                    <span>评论：15</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div class="w" style="height: 380px;background-color: pink">
+      <el-carousel height="380px">
+        <el-carousel-item v-for="(item, index) in schna" :key="index">
+          <img :src="item" alt="">
+        </el-carousel-item>
+      </el-carousel>
     </div>
-    <div class="card w clearfix">
-      <div class="card_container ">
-        <div class="box-hd">
-          <h3>科研动态</h3>
-          <a href="#">查看更多</a>
-        </div>
-        <div class="card_body">
-          <div class="kapian">
-            <ul>
-              <li>
-                <img src="../../assets/img/tupian7.jpg">
-                <div class="left">
-                  <span>关于转发2019年度河北省社会科学基金项目申报工作的通知</span>
-                </div>
-                <div class="right">
-                  <div class="first_line">
-                    <!--                    <img class="img" src="../../assets/icon/dianzan.png">-->
+    <div class="w" style="margin-top: 30px">
+      <el-row>
+        <el-col :span="16">
+          <el-card class="box-card" style="margin-right: -20px;height: 300px">
+            <el-tabs v-model="activeName" @tab-click="handleClick">
+              <el-tab-pane label="重要通知" name="first">
+                <div class="important_notice">
+                  <div class="important_notice_head">
+                    <el-row>
+                      <el-col :span="16"><span class="">发布标题</span></el-col>
+                      <el-col :span="4"><span>发布部门</span></el-col>
+                      <el-col :span="4"><span>发布时间</span></el-col>
+                    </el-row>
                   </div>
-                  <div class="second_line">
-                    <span>评论：42</span>
+                  <div class="important_notice_content">
+                    <el-row style="margin-top: 12px">
+                      <el-col :span="16"><span>关于收看河北电视台新闻联播的通知</span></el-col>
+                      <el-col :span="4"><span>党委、院长办公室</span></el-col>
+                      <el-col :span="4"><span>2020-09-03</span></el-col>
+                    </el-row>
+                    <el-row style="margin-top: 12px">
+                      <el-col :span="16"><span>关于开学防疫工作展开</span></el-col>
+                      <el-col :span="4"><span>党委、院长办公室</span></el-col>
+                      <el-col :span="4"><span>2020-09-03</span></el-col>
+                    </el-row>
+                    <el-row style="margin-top: 12px">
+                      <el-col :span="16"><span>关于各学院2020年度科研项目申报</span></el-col>
+                      <el-col :span="4"><span>科研处</span></el-col>
+                      <el-col :span="4"><span>2020-08-28</span></el-col>
+                    </el-row>
+                    <el-row style="margin-top: 12px">
+                      <el-col :span="16"><span>2020年9月干部值班表</span></el-col>
+                      <el-col :span="4"><span>党委、院长办公室</span></el-col>
+                      <el-col :span="4"><span>2020-8-27</span></el-col>
+                    </el-row>
+                    <el-row style="margin-top: 12px">
+                      <el-col :span="16"><span>关于图书馆停电通知</span></el-col>
+                      <el-col :span="4"><span>后勤管理处</span></el-col>
+                      <el-col :span="4"><span>2020-08-23</span></el-col>
+                    </el-row>
                   </div>
-                </div>
-              </li>
-              <li>
-                <img src="../../assets/img/tupian8.jpg">
-                <div class="left">
-                  <span>电子学院王贺/刘子艺团队在新型电子器件方面取得最新成果</span>
-                </div>
-                <div class="right">
-                  <div class="first_line">
-                    <!--                    <img class="img" src="../../assets/icon/dianzan.png">-->
-                  </div>
-                  <div class="second_line">
-                    <span>评论：22</span>
-                  </div>
-                </div>
-              </li>
-              <li class="noline">
-                <img src="../../assets/img/tupian9.jpg">
-                <div class="left">
-                  <span>苏秀宁教授发表关于未来图书馆的新思考</span>
-                </div>
-                <div class="right">
-                  <div class="first_line">
-                    <!--                    <img class="img" src="../../assets/icon/dianzan.png">-->
-                  </div>
-                  <div class="second_line">
-                    <span>评论：18</span>
+                  <div class="more">
+                    <div style="float: right;margin-top: 10px">
+                      <el-button type="text">更多</el-button>
+                    </div>
                   </div>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="card_container ">
-        <div class="box-hd">
-          <h3>成果展示</h3>
-          <a href="#">查看全部</a>
-        </div>
-        <div class="card_body">
-          <div class="kapian">
-            <ul>
-              <li>
-                <img src="../../assets/img/tupian10.jpg">
-                <div class="left">
-                  <span>刘年教授荣获中国产学研合作创新奖</span>
-                </div>
-                <div class="right">
-                  <div class="first_line">
-                    <!--                    <img class="img" src="../../assets/icon/dianzan.png">-->
+              </el-tab-pane>
+              <el-tab-pane label="科研通知" name="second">科研通知</el-tab-pane>
+              <el-tab-pane label="信息咨询" name="third">信息咨询</el-tab-pane>
+              <el-tab-pane label="科研动态" name="fourth">科研动态</el-tab-pane>
+              <el-tab-pane label="交流中心" name="fifth">交流中心</el-tab-pane>
+              <el-tab-pane label="法规制度" name="sixth">法规制度</el-tab-pane>
+            </el-tabs>
+          </el-card>
+        </el-col>
+        <el-col :span="8">
+          <el-card class="box-card" style="margin-left: 20px;height: 300px">
+            <el-tabs v-model="activeNametwo" @tab-click="handleClick">
+              <el-tab-pane label="科研应用" name="first">
+                <div class="icon_container">
+                  <div class="icon_item">
+                    <div style="cursor: pointer">
+                      <img style="width: 70px;height: 70px;"src="../../assets/icon/mulu.png">
+                      <div style="text-align: center;width: 70px">
+                        <span style="font-size: 12px;font-weight: bolder">期刊查询</span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="second_line">
-                    <span>评论：16</span>
+                  <div class="icon_item">
+                    <div style="cursor: pointer">
+                      <img style="width: 70px;height: 70px;" src="../../assets/icon/jiangli.png">
+                      <div style="text-align: center;width: 70px">
+                        <span style="font-size: 12px;font-weight: bolder">奖励查询</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li>
-                <img src="../../assets/img/tupian11.jpg">
-                <div class="left">
-                  <span>河北省第三届教育科学优秀成果奖情况一览表</span>
-                </div>
-                <div class="right">
-                  <div class="first_line">
-                    <!--                    <img class="img" src="../../assets/icon/dianzan.png">-->
-                  </div>
-                  <div class="second_line">
-                    <span>评论：12</span>
-                  </div>
-                </div>
-              </li>
-              <li class="noline">
-                <img src="../../assets/img/tupian12.jpg">
-                <div class="left">
-                  <span>王可玲教授关于高职学生低谷期心理研究论文</span>
-                </div>
-                <div class="right">
-                  <div class="first_line">
-                    <!--                    <img class="img" src="../../assets/icon/dianzan.png">-->
-                  </div>
-                  <div class="second_line">
-                    <span>评论：27</span>
+                  <div class="icon_item">
+                    <div style="cursor: pointer">
+                      <img style="width: 70px;height: 70px;"src="../../assets/icon/xiangmu.png">
+                      <div style="text-align: center;width: 70px">
+                        <span style="font-size: 12px;font-weight: bolder">项目查询</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card w clearfix">
-      <div class="card_container_two">
-        <div class="box-hd">
-          <h3>常用工具</h3>
-        </div>
-        <div class="card_body">
-          <div class="kapian_two">
-            <div class="kapian_item">
-              <div style="text-align: center;margin-top: 5px">
-                <img style="width: 65px;height: 65px" src="../../assets/icon/mulu.png">
-              </div>
-              <div style="text-align: center;margin-top: 5px">
-                <span style="font-size: 12px;color: white">期刊目录查询</span>
-              </div>
-            </div>
-            <div class="kapian_item">
-              <div style="text-align: center;margin-top: 5px">
-                <img style="width: 70px;height: 70px" src="../../assets/icon/jiangli.png">
-              </div>
-              <div style="text-align: center">
-                <span style="font-size: 12px;color: white">奖励信息查询</span>
-              </div>
-            </div>
-            <div class="kapian_item">
-              <div style="text-align: center;margin-top: 5px">
-                <img style="width: 70px;height: 70px" src="../../assets/icon/xiangmu.png">
-              </div>
-              <div style="text-align: center">
-                <span style="font-size: 12px;color: white">项目信息查询</span>
-              </div>
-            </div>
-            <div class="kapian_item">
-              <div style="text-align: center;margin-top: 5px">
-                <img style="width: 65px;height: 65px" src="../../assets/icon/tushuguan.png">
-              </div>
-              <div style="text-align: center">
-                <span style="font-size: 12px;color: white">图书馆</span>
-              </div>
-            </div>
-            <div class="kapian_item">
-              <div style="text-align: center;margin-top: 5px">
-                <img style="width: 65px;height: 65px" src="../../assets/icon/zhiwang.png">
-              </div>
-              <div style="text-align: center">
-                <span style="font-size: 12px;color: white">中国知网</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                <div class="icon_container" style="margin-top: 10px">
+                  <div class="icon_item">
+                    <div style="cursor: pointer">
+                      <img style="width: 70px;height: 70px;" src="../../assets/icon/tushuguan.png">
+                      <div style="text-align: center;width: 70px">
+                        <span style="font-size: 12px;font-weight: bolder">图书馆</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="icon_item">
+                    <div style="cursor: pointer">
+                      <img style="width: 70px;height: 70px;" src="../../assets/icon/zhiwang.png">
+                      <div style="text-align: center;width: 70px">
+                        <span style="font-size: 12px;font-weight: bolder">中国知网</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="icon_item">
+                    <div style="cursor: pointer">
+                      <img style="width: 70px;height: 70px"  src="../../assets/icon/jindu.png">
+                      <div style="text-align: center;width: 70px">
+                        <span style="font-size: 12px;font-weight: bolder">进度提醒</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="more">
+                  <div style="float: right;margin-top: 10px">
+                    <el-button type="text">更多</el-button>
+                  </div>
+                </div>
+              </el-tab-pane>
+              <el-tab-pane label="我的应用" name="second">我的应用</el-tab-pane>
+            </el-tabs>
+          </el-card>
+        </el-col>
+      </el-row>
     </div>
     <div class="footer">
       <div class="w">
@@ -338,75 +237,6 @@
         </div>
       </el-form>
     </el-dialog>
-    <!--    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">-->
-    <!--      <div class="title-container">-->
-    <!--        <h3 class="title">-->
-    <!--          {{ $t('login.title') }}-->
-    <!--        </h3>-->
-    <!--        <lang-select class="set-language" />-->
-    <!--      </div>-->
-
-    <!--      <el-form-item prop="username">-->
-    <!--        <span class="svg-container">-->
-    <!--          <svg-icon icon-class="user" />-->
-    <!--        </span>-->
-    <!--        <el-input-->
-    <!--          ref="username"-->
-    <!--          v-model="loginForm.username"-->
-    <!--          :placeholder="$t('login.username')"-->
-    <!--          name="username"-->
-    <!--          type="text"-->
-    <!--          auto-complete="on"-->
-    <!--        />-->
-    <!--      </el-form-item>-->
-
-    <!--      <el-form-item prop="password">-->
-    <!--        <span class="svg-container">-->
-    <!--          <svg-icon icon-class="password" />-->
-    <!--        </span>-->
-    <!--        <el-input-->
-    <!--          ref="password"-->
-    <!--          v-model="loginForm.password"-->
-    <!--          :type="passwordType"-->
-    <!--          :placeholder="$t('login.password')"-->
-    <!--          name="password"-->
-    <!--          auto-complete="on"-->
-    <!--          @keyup.enter.native="handleLogin"-->
-    <!--        />-->
-    <!--        <span class="show-pwd" @click="showPwd">-->
-    <!--          <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />-->
-    <!--        </span>-->
-    <!--      </el-form-item>-->
-
-    <!--      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">-->
-    <!--        {{ $t('login.logIn') }}-->
-    <!--      </el-button>-->
-
-    <!--      <div style="position:relative">-->
-    <!--        <div class="tips">-->
-    <!--          <span>{{ $t('login.username') }} : admin</span>-->
-    <!--          <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>-->
-    <!--        </div>-->
-    <!--        <div class="tips">-->
-    <!--          <span style="margin-right:18px;">-->
-    <!--            {{ $t('login.username') }} : editor-->
-    <!--          </span>-->
-    <!--          <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>-->
-    <!--        </div>-->
-
-    <!--        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">-->
-    <!--          {{ $t('login.thirdparty') }}-->
-    <!--        </el-button>-->
-    <!--      </div>-->
-    <!--    </el-form>-->
-
-    <!--    <el-dialog :title="$t('login.thirdparty')" :visible.sync="showDialog">-->
-    <!--      {{ $t('login.thirdpartyTips') }}-->
-    <!--      <br>-->
-    <!--      <br>-->
-    <!--      <br>-->
-    <!--      <social-sign />-->
-    <!--    </el-dialog>-->
   </div>
 </template>
 
@@ -434,7 +264,9 @@ export default {
       }
     }
     return {
-      schna: ['http://zhihejiaoyu.cn/reveal/img/keyan1.jpg', 'http://zhihejiaoyu.cn/reveal/img/keyan2.jpg'],
+      activeName: 'first',
+      activeNametwo: 'first',
+      schna: ['https://zhongkeruitong.top/dangjian/5.jpg','https://zhongkeruitong.top/dangjian/4.jpg'],
       dialogVisible: false,
       loginForm: {
         username: 'admin',
@@ -915,6 +747,7 @@ body {
 .footer {
   height: 180px;
   background-color: #fff;
+  margin-top: 30px;
 }
 .footer .w {
   padding-top: 35px;
@@ -1068,5 +901,19 @@ body {
 }
   .card_container_two{
     width: 100%;
+  }
+  .important_notice_head span {
+    font-weight: bolder;
+    font-size: 12px;
+  }
+  .important_notice_content span{
+    font-size: 13px;
+    color: #676767;
+    cursor: pointer;
+  }
+  .icon_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 </style>
