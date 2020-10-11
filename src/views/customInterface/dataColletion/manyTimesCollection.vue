@@ -2,8 +2,23 @@
   <div class="app-container">
     <el-tabs >
 <!--      v-model="activeName" @tab-click="handleClick"-->
-      <el-tab-pane label="中文核心论文登记">
-        <h4 style="text-align: center;margin: 28px 0px 0px 0px; ">中文核心论文登记表</h4>
+      <el-tab-pane label="学术论文">
+        <el-row :gutter="5">
+          <el-col :span="3">
+            <div class="shenpiselect">
+              <span style="font-size: 16px;font-weight: bolder">选择论文类型：</span>
+            </div>
+          </el-col>
+          <el-col :span="6">
+            <div class="select">
+              <el-select v-model="type_select_paper" placeholder="请选择您的学术论文类型" >
+                <el-option label="中文核心论文" value="hexin"/>
+                <el-option label="三大检索论文" value="threesearch"/>
+                <el-option label="其他" value="others"/>
+              </el-select>
+            </div>
+          </el-col>
+        </el-row>
         <el-button @click="openDialog" style="float: right;margin-right: 15px" type="text">新增</el-button>
         <el-button style="float: right;margin-right: 15px" type="text">修改</el-button>
         <el-table
@@ -47,8 +62,23 @@
           />
         </div>
       </el-tab-pane>
-      <el-tab-pane label="三大检索论文登记">
-          <h4 style="text-align: center;margin: 28px 0px 0px 0px;"> 三大检索论文登记表</h4>
+      <el-tab-pane label="课题项目">
+        <el-row :gutter="5">
+          <el-col :span="3">
+            <div class="shenpiselect">
+              <span style="font-size: 16px;font-weight: bolder">选择项目类型：</span>
+            </div>
+          </el-col>
+          <el-col :span="6">
+            <div class="select">
+              <el-select v-model="type_select_project" placeholder="请选择您的项目类型" >
+                <el-option label="国家级项目" value="first"/>
+                <el-option label="省级项目" value="second"/>
+                <el-option label="其他" value="third"/>
+              </el-select>
+            </div>
+          </el-col>
+        </el-row>
           <el-button @click="openThreesDialog" style="float: right;margin-right: 15px" type="text">新增</el-button>
           <el-button style="float: right;margin-right: 15px" type="text">修改</el-button>
           <el-table
@@ -91,34 +121,94 @@
           />
         </div>
       </el-tab-pane>
-      <el-tab-pane label="非核心论文登记">
-        <h4 style="text-align: center;margin: 28px 0px 0px 0px;">非核心论文登记表</h4>
-        <el-button @click="openNoncoreDialog" style="float: right;margin-right: 15px" type="text">新增</el-button>
+<!--      <el-tab-pane label="非核心论文登记">-->
+<!--        <h4 style="text-align: center;margin: 28px 0px 0px 0px;">非核心论文登记表</h4>-->
+<!--        <el-button @click="openNoncoreDialog" style="float: right;margin-right: 15px" type="text">新增</el-button>-->
+<!--        <el-button style="float: right;margin-right: 15px" type="text">修改</el-button>-->
+<!--        <el-table-->
+<!--          :data="tableData"-->
+<!--          style="width: 100%"-->
+<!--        stripe>-->
+<!--          <el-table-column-->
+<!--            prop="papername"-->
+<!--            label="论文名称"-->
+<!--           />-->
+<!--          <el-table-column-->
+<!--            prop="isauthor"-->
+<!--            label="是否第一作者"-->
+<!--            />-->
+<!--          <el-table-column-->
+<!--            prop="publication"-->
+<!--            label="发表刊物"-->
+<!--            />-->
+<!--          <el-table-column-->
+<!--            prop="press"-->
+<!--            label="出版社"-->
+<!--            />-->
+<!--          <el-table-column-->
+<!--            prop="pubtime"-->
+<!--            label="发表时间"-->
+<!--            />-->
+<!--          <el-table-column-->
+<!--            prop="enclosure"-->
+<!--            label="附件"-->
+<!--          />-->
+<!--        </el-table>-->
+<!--        <div style="text-align: center; margin-top: 10px;">-->
+<!--          <el-pagination-->
+<!--            @current-change="2"-->
+<!--            :current-page="1"-->
+<!--            :page-size="pagesize"-->
+<!--            :page-sizes="[5, 10]"-->
+<!--            :total="tableData.length"-->
+<!--            layout="total, sizes, prev, pager, next, jumper"-->
+<!--          />-->
+<!--        </div>-->
+<!--      </el-tab-pane>-->
+      <el-tab-pane label="专利申报">
+        <el-row :gutter="5">
+          <el-col :span="3">
+            <div class="shenpiselect">
+              <span style="font-size: 16px;font-weight: bolder">选择专利类型：</span>
+            </div>
+          </el-col>
+          <el-col :span="6">
+            <div class="select">
+              <el-select v-model="type_select_value" placeholder="请选择您的专利类型" >
+                <el-option label="发明专利" value="faming"/>
+                <el-option label="实用新型专利" value="new"/>
+                <el-option label="软件著作权" value="softe"/>
+              </el-select>
+            </div>
+          </el-col>
+        </el-row>
+<!--        <h4 style="text-align: center;margin: 28px 0px 0px 0px;">专利申报表</h4>-->
+        <el-button @click="openPatentDialog" style="float: right;margin-right: 15px" type="text">新增</el-button>
         <el-button style="float: right;margin-right: 15px" type="text">修改</el-button>
         <el-table
           :data="tableData"
-          style="width: 100%"
-        stripe>
+          stripe
+          style="width: 100%">
           <el-table-column
             prop="papername"
-            label="论文名称"
-           />
+            label="专利名称"
+          />
           <el-table-column
             prop="isauthor"
-            label="是否第一作者"
-            />
+            label="专利编号"
+          />
           <el-table-column
             prop="publication"
-            label="发表刊物"
-            />
+            label="申请人(单位)"
+          />
           <el-table-column
             prop="press"
-            label="出版社"
-            />
+            label="通讯地址"
+          />
           <el-table-column
             prop="pubtime"
-            label="发表时间"
-            />
+            label="申请时间"
+          />
           <el-table-column
             prop="enclosure"
             label="附件"
@@ -179,50 +269,7 @@
           />
         </div>
       </el-tab-pane>
-      <el-tab-pane label="专利申报">
-        <h4 style="text-align: center;margin: 28px 0px 0px 0px;">专利申报表</h4>
-        <el-button @click="openPatentDialog" style="float: right;margin-right: 15px" type="text">新增</el-button>
-        <el-button style="float: right;margin-right: 15px" type="text">修改</el-button>
-        <el-table
-          :data="tableData"
-          stripe
-          style="width: 100%">
-          <el-table-column
-            prop="papername"
-            label="专利名称"
-           />
-          <el-table-column
-            prop="isauthor"
-            label="专利编号"
-          />
-          <el-table-column
-            prop="publication"
-            label="申请人(单位)"
-            />
-          <el-table-column
-            prop="press"
-            label="通讯地址"
-           />
-          <el-table-column
-            prop="pubtime"
-            label="申请时间"
-            />
-          <el-table-column
-            prop="enclosure"
-            label="附件"
-          />
-        </el-table>
-        <div style="text-align: center; margin-top: 10px;">
-          <el-pagination
-            @current-change="2"
-            :current-page="1"
-            :page-size="pagesize"
-            :page-sizes="[5, 10]"
-            :total="tableData.length"
-            layout="total, sizes, prev, pager, next, jumper"
-          />
-        </div>
-      </el-tab-pane>
+
     </el-tabs>
     <div>
       <el-dialog :visible.sync="dialogVisiblePatent" title="专利申报登记">
@@ -444,6 +491,9 @@ export default {
   name: 'ManyTimesCollection',
   data() {
     return {
+      type_select_project:'',
+      type_select_paper:'',
+      type_select_value:'',
       pagesize: 10,
       // fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}],
       form: {

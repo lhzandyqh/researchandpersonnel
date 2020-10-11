@@ -162,12 +162,59 @@
           <div class="button_container">
             <div style="float: right">
               <el-button size="small" type="success">重置</el-button>
-              <el-button size="small" type="primary" @click="submit">提交</el-button>
+              <el-button size="small" type="primary" @click="submitVisible = true">提交</el-button>
             </div>
           </div>
         </div>
       </div>
     </el-card>
+    <el-dialog :visible.sync="submitVisible" title="提交信息">
+      <div>
+        <el-row :gutter="5">
+          <el-col :span="4">
+              <span style="font-weight: bolder">选择提交部门：</span>
+          </el-col>
+          <el-col :span="6">
+            <div class="select">
+              <el-select v-model="type_select_department" placeholder="请选择提交部门" >
+                <el-option label="科研处" value="keyan"/>
+                <el-option label="财务处" value="caiwu"/>
+              </el-select>
+            </div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="5" style="margin-top: 5px">
+          <el-col :span="4">
+            <span style="font-weight: bolder">选择审核人：</span>
+          </el-col>
+          <el-col :span="6">
+            <div class="select">
+              <el-select v-model="type_select_people" placeholder="请选择审核人" >
+                <el-option label="王老师" value="keyan"/>
+                <el-option label="李老师" value="caiwu"/>
+              </el-select>
+            </div>
+          </el-col>
+        </el-row>
+        <el-row style="padding-top: 10px">
+          <span style="font-weight: bolder">备注</span>
+        </el-row>
+        <el-row style="padding-top: 10px">
+          <el-input
+            :rows="4"
+            v-model="AuditingReason"
+            type="textarea"
+            placeholder="请输入内容"/>
+        </el-row>
+      </div>
+      <div class="foot">
+        <span slot="footer" class="dialog-footer">
+          <el-button type="primary" size="small" plain @click="submit">确认提交</el-button>
+          <el-button type="danger" size="small" plain @click="submitVisible = false">取消</el-button>
+<!--          <el-button type="primary" @click="zhuanyeVisible = false" size="small" plain>关闭</el-button>-->
+        </span>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -202,11 +249,15 @@ export default {
         value: '教育厅课题',
         label: '教育厅课题'
       }],
-      time: ''
+      time: '',
+      submitVisible:false,
+      type_select_department:'',
+      type_select_people:''
     }
   },
   methods: {
     submit() {
+      this.submitVisible = false
       this.$message({
         type:'success',
         message:'提交成功'
@@ -224,5 +275,8 @@ export default {
   .button_container{
     margin-bottom: 20px;
   }
-
+  .foot{
+    text-align: center;
+    margin-top: 20px;
+  }
 </style>
