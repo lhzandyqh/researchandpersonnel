@@ -159,7 +159,7 @@ export const asyncRoutes = [
     redirect: '/collect/index',
     alwaysShow: true, // will always show the root menu
     meta: {
-      title: '信息提交',
+      title: '信息采集',
       icon: 'form',
       roles: ['admin', '教师'] // you can set roles in root nav
     },
