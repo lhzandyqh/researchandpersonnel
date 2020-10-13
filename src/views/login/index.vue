@@ -135,7 +135,34 @@
                   </div>
                 </div>
               </el-tab-pane>
-              <el-tab-pane label="我的应用" name="second">我的应用</el-tab-pane>
+              <el-tab-pane label="我的应用" name="second">
+                <div class="icon_container">
+                  <div class="icon_item">
+                    <div style="cursor: pointer">
+                      <img style="width: 70px;height: 70px;"src="../../assets/icon/shuju.png">
+                      <div style="text-align: center;width: 70px">
+                        <span style="font-size: 12px;font-weight: bolder">数据可视化</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="icon_item">
+                    <div style="cursor: pointer">
+                      <img style="width: 70px;height: 70px;" src="../../assets/icon/python.png">
+                      <div style="text-align: center;width: 70px">
+                        <span style="font-size: 12px;font-weight: bolder">python数据分析工具</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="icon_item">
+                    <div style="cursor: pointer">
+                      <img style="width: 70px;height: 70px;"src="../../assets/icon/tupu.png">
+                      <div style="text-align: center;width: 70px">
+                        <span style="font-size: 12px;font-weight: bolder">文献图谱</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </el-tab-pane>
             </el-tabs>
           </el-card>
         </el-col>

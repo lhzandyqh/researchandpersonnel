@@ -71,7 +71,49 @@
         </div>
         <div>
           <el-row>
-            <chart-four></chart-four>
+<!--            <chart-four></chart-four>-->
+            <div>
+              <el-row :gutter="20">
+                <div style="display: flex;align-items: center;margin: 15px 0;">
+                  <div style="font-size: 14px;margin: 0 15px;font-weight: bolder">请选择学院:</div>
+                  <div>
+                    <el-select v-model="value1" multiple  placeholder="请选择学院">
+                      <el-option label="文学院" value="1"></el-option>
+                      <el-option label="理学院" value="2"></el-option>
+                      <el-option label="教育学院" value="3"></el-option>
+                      <el-option label="医学院" value="4"></el-option>
+                      <el-option label="商学院" value="5"></el-option>
+                      <el-option label="管理学院" value="6"></el-option>
+                      <el-option label="机械工程学院" value="7"></el-option>
+                      <el-option label="电子信息学院" value="8"></el-option>
+                      <el-option label="电气工程学院" value="9"></el-option>
+                    </el-select>
+                  </div>
+                  <div style="font-size: 14px;margin: 0 15px;font-weight: bolder">请选择类型:</div>
+                  <div>
+                    <el-select v-model="value2" multiple  placeholder="请选择类型">
+                      <el-option label="课题项目" value="1"></el-option>
+                      <el-option label="专利" value="2"></el-option>
+                      <el-option label="学术论文" value="3"></el-option>
+                      <el-option label="学术专著" value="4"></el-option>
+                    </el-select>
+                  </div>
+                  <div style="font-size: 14px;margin: 0 15px;font-weight: bolder">请选择指标:</div>
+                  <div>
+                    <el-select v-model="value3" multiple  placeholder="请选择指标">
+                      <el-option label="总数" value="1"></el-option>
+                      <el-option label="平均数" value="2"></el-option>
+                    </el-select>
+                  </div>
+                  <div>
+                    <el-button type="primary" style="margin-left:15px" @click="beginQuery">查询</el-button>
+                  </div>
+                </div>
+              </el-row>
+              <el-row>
+                <div id="homepage_chart" style="height: 300px" />
+              </el-row>
+            </div>
           </el-row>
           <el-row>
             <el-col :span="14">
@@ -82,49 +124,7 @@
             </el-col>
           </el-row>
         </div>
-        <el-divider></el-divider>
-        <div>
-          <el-row :gutter="20">
-            <div style="display: flex;align-items: center;margin: 15px 0;">
-              <div style="font-size: 14px;margin: 0 15px;font-weight: bolder">请选择学院:</div>
-              <div>
-                <el-select v-model="value1" multiple  placeholder="请选择学院">
-                  <el-option label="文学院" value="1"></el-option>
-                  <el-option label="理学院" value="2"></el-option>
-                  <el-option label="教育学院" value="3"></el-option>
-                  <el-option label="医学院" value="4"></el-option>
-                  <el-option label="商学院" value="5"></el-option>
-                  <el-option label="管理学院" value="6"></el-option>
-                  <el-option label="机械工程学院" value="7"></el-option>
-                  <el-option label="电子信息学院" value="8"></el-option>
-                  <el-option label="电气工程学院" value="9"></el-option>
-                </el-select>
-              </div>
-              <div style="font-size: 14px;margin: 0 15px;font-weight: bolder">请选择类型:</div>
-              <div>
-                <el-select v-model="value2" multiple  placeholder="请选择类型">
-                  <el-option label="课题项目" value="1"></el-option>
-                  <el-option label="专利" value="2"></el-option>
-                  <el-option label="学术论文" value="3"></el-option>
-                  <el-option label="学术专著" value="4"></el-option>
-                </el-select>
-              </div>
-              <div style="font-size: 14px;margin: 0 15px;font-weight: bolder">请选择指标:</div>
-              <div>
-                <el-select v-model="value3" multiple  placeholder="请选择指标">
-                  <el-option label="总数" value="1"></el-option>
-                  <el-option label="平均数" value="2"></el-option>
-                </el-select>
-              </div>
-              <div>
-                <el-button type="primary" style="margin-left:15px" @click="beginQuery">查询</el-button>
-              </div>
-            </div>
-          </el-row>
-          <el-row>
-            <div id="homepage_chart" style="height: 300px" />
-          </el-row>
-        </div>
+<!--        <el-divider></el-divider>-->
       </el-card>
     </div>
     <div v-if="roles==='系部主管'">
@@ -155,7 +155,8 @@
         </div>
         <div>
           <el-row>
-            <chart-seven></chart-seven>
+<!--            <chart-seven></chart-seven>-->
+            <chart-ten></chart-ten>
           </el-row>
           <el-row>
             <el-col :span="14">
@@ -180,6 +181,7 @@ import chartSix from '@/views/customInterface/homePage/echart/chart_six'
 import chartSeven from '@/views/customInterface/homePage/echart/chart_seven'
 import chartEight from '@/views/customInterface/homePage/echart/chart_eight'
 import chartNine from '@/views/customInterface/homePage/echart/chart_nine'
+import chartTen from '@/views/customInterface/homePage/echart/chart_ten'
 // import chart_three from './echart/chart_three'
 import echarts from 'echarts'
 require('echarts/theme/macarons')
@@ -194,7 +196,8 @@ export default {
     chartSix,
     chartSeven,
     chartEight,
-    chartNine
+    chartNine,
+    chartTen
   },
   computed:{
     roles() {

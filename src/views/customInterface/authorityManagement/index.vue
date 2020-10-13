@@ -91,9 +91,10 @@
 <!--                        </template>-->
               <template slot-scope="scope">
                 <el-select v-model="scope.row.edit" multiple placeholder="请选择权限" style="width: 120px">
-                  <el-option label="教师" value="教师"/>
-                  <el-option label="系部主管" value="系部主管"/>
-                  <el-option label="科研主管" value="科研主管"/>
+                  <el-option label="基础" value="基础"/>
+                  <el-option label="系部审核" value="系部审核员"/>
+<!--                  <el-option label="系部主管" value="系部主管"/>-->
+                  <el-option label="科研处审核" value="科研处审核员"/>
                 </el-select>
                 <el-button type="primary" style="margin-top: 10px" @click="change">确认修改</el-button>
               </template>
@@ -138,7 +139,7 @@
             college:'文学院',
             department: '科研处',
             title: '讲师',
-            quanxian:'教师',
+            quanxian:'基础',
             ifwork:'在职'
           }, {
             number:'2',
@@ -147,7 +148,7 @@
             college:'理学院',
             department: '教务处',
             title: '教授',
-            quanxian:'教师 科研主管',
+            quanxian:'基础 科研处审核',
             ifwork:'在职'
           }, {
             number:'3',
@@ -156,7 +157,7 @@
             college:'文学院',
             department: '审计处',
             title: '讲师',
-            quanxian:'教师 系部主管',
+            quanxian:'基础 系部审核',
             ifwork:'离岗'
           }, {
             number:'4',
@@ -165,7 +166,7 @@
             college:'管理学院',
             department: '电教设备处',
             title: '讲师',
-            quanxian:'教师 系部主管 科研主管',
+            quanxian:'基础 系部审核 科研处审核',
             ifwork:'在职'
           },
             {
@@ -175,7 +176,7 @@
               college:'机械工程学院',
               department: '科研处',
               title: '讲师',
-              quanxian:'教师 系部主管',
+              quanxian:'基础 系部审核',
               ifwork:'在职'
             }],
           pagesize: 10,

@@ -75,7 +75,7 @@ export const constantRoutes = [
         // component: () => import('@/views/dashboard/index'),
         component: () => import('@/views/customInterface/homePage/index'),
         name: 'Dashboard',
-        meta: { title: 'dashboard', icon: 'dashboard', noCache: true, affix: true }
+        meta: { title: '智能分析', icon: 'dashboard', noCache: true, affix: true }
       }
     ]
   }
@@ -159,7 +159,7 @@ export const asyncRoutes = [
     redirect: '/collect/index',
     alwaysShow: true, // will always show the root menu
     meta: {
-      title: '信息提交',
+      title: '信息采集',
       icon: 'form',
       roles: ['admin', '教师'] // you can set roles in root nav
     },
@@ -349,6 +349,18 @@ export const asyncRoutes = [
         component: () => import('@/views/customInterface/smartInquire/index'),
         name: 'smartinquire',
         meta: { title: '智能查询', icon: 'search', noCache: true, roles: ['科研主管'] }
+      }
+    ]
+  },
+  {
+    path: '/budgetmanagement',
+    component: Layout,
+    children: [
+      {
+        path: 'budgetmanagement',
+        component: () => import('@/views/customInterface/budgetManagement/index'),
+        name: 'authoritymanagement',
+        meta: { title: '预算管理', icon: 'money', noCache: true, roles: ['科研主管','教师'] }
       }
     ]
   },
