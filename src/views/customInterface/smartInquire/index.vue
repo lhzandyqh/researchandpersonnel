@@ -41,7 +41,7 @@
           </el-col>
           <el-col :span="8">
             <span style="font-weight: bolder;margin-left:15px;margin-right: 10px;">项目级别：</span>
-            <el-select v-model="projectsub" placeholder="选择学院" style="width: 12vw">
+            <el-select v-model="projectsub" placeholder="选择项目级别" style="width: 12vw">
               <el-option
                 v-for="item in classList"
                 :key="item.value"
@@ -53,7 +53,7 @@
         <el-row style="margin: 10px 120px 0 ">
           <el-col :span="10">
             <span style="font-weight: bolder;margin-left:15px;margin-right: 10px;">项目人数：</span>
-            <el-select v-model="projectpeople" placeholder="选择学院" style="width: 12vw">
+            <el-select v-model="projectpeople" placeholder="选择项目人数" style="width: 12vw">
               <el-option
                 v-for="item in numList"
                 :key="item.value"
@@ -63,9 +63,95 @@
           </el-col>
           <el-col :span="10">
             <span style="font-weight: bolder;margin-left:15px;margin-right: 10px;">项目资金：</span>
-            <el-select v-model="projectmoney" placeholder="选择学院" style="width: 12vw">
+            <el-select v-model="projectmoney" placeholder="选择项目资金" style="width: 12vw">
               <el-option
                 v-for="item in moneyList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"/>
+            </el-select>
+          </el-col>
+        </el-row>
+        <el-row style="margin: 10px 120px 0 ">
+          <el-col :span="10">
+            <span style="font-weight: bolder;margin-left:15px;margin-right: 10px;">项目进度：</span>
+            <el-select v-model="projectprogress" placeholder="选择项目进度" style="width: 12vw">
+              <el-option
+                v-for="item in progressList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"/>
+            </el-select>
+          </el-col>
+          <el-col :span="10">
+            <span style="font-weight: bolder;margin-left:15px;margin-right: 10px;">批准年度：</span>
+            <el-date-picker
+              v-model="projectdate"
+              type="year"
+              style="width: 12vw"
+              placeholder="批准年度">
+            </el-date-picker>
+          </el-col>
+        </el-row>
+        <el-row style="margin: 10px 120px 0 ">
+          <el-col :span="10">
+            <span style="font-weight: bolder;margin-left:15px;margin-right: 10px;">资助类别：</span>
+            <el-select v-model="projectzizhu" placeholder="选择资助类别" style="width: 12vw">
+              <el-option
+                v-for="item in zizhuList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"/>
+            </el-select>
+          </el-col>
+          <el-col :span="10">
+            <span style="font-weight: bolder;margin-left:15px;margin-right: 10px;">学科类别：</span>
+            <el-select v-model="projectsubject" placeholder="选择学科类别" style="width: 12vw">
+              <el-option
+                v-for="item in subjectList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"/>
+            </el-select>
+          </el-col>
+        </el-row>
+        <el-row style="margin: 10px 120px 0 ">
+          <el-col :span="10">
+            <span style="font-weight: bolder;margin-left:15px;margin-right: 10px;">人才类别：</span>
+            <el-select v-model="projectuser" placeholder="选择人才类别" style="width: 12vw">
+              <el-option
+                v-for="item in userList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"/>
+            </el-select>
+          </el-col>
+          <el-col :span="10">
+            <span style="font-weight: bolder;margin-left:15px;margin-right: 10px;">课题类型：</span>
+            <el-select v-model="projectketi" placeholder="请选择课题类型" style="width: 12vw">
+              <el-option label="个人项目" value="国家级"/>
+              <el-option label="教学建设" value="省级"/>
+              <el-option label="学术科研" value="区级"/>
+              <el-option label="集体科研" value="市级"/>
+            </el-select>
+          </el-col>
+        </el-row>
+        <el-row style="margin: 10px 120px 0 ">
+          <el-col :span="10">
+            <span style="font-weight: bolder;margin-left:15px;margin-right: 10px;">&nbsp;&nbsp;&nbsp;实验室：</span>
+            <el-select v-model="projectaddress" placeholder="选择实验室" style="width: 12vw">
+              <el-option
+                v-for="item in addressList"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"/>
+            </el-select>
+          </el-col>
+          <el-col :span="10">
+            <span style="font-weight: bolder;margin-left:15px;margin-right: 10px;">审核状态：</span>
+            <el-select v-model="projectstatus" placeholder="选择审核状态" style="width: 12vw">
+              <el-option
+                v-for="item in  statusList"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"/>
@@ -354,6 +440,15 @@ export default {
       selectWord3: '',
       selectWord4: '',
       projectpeople: '',
+      projectdate:'',
+      projectprogress:'',
+      projectsubject: '',
+      projectzizhu: '',
+
+      projectketi: '',
+      projectuser:'',
+      projectstatus: '',
+      projectaddress: '',
       projectmoney: '',
       options1: [
         {
@@ -416,6 +511,56 @@ export default {
         { label: '10万~50万', value: '3' },
         { label: '50万以上', value: '4' }
 
+      ],
+      statusList: [
+        { label: '已通过', value: '1' },
+        { label: '未通过', value: '2 ' },
+        { label: '待审核', value: '3' },
+
+      ],
+      addressList: [
+        { label: '大数据智能实验室', value: '1' },
+        { label: 'vr虚拟现实实验室', value: '2 ' },
+        { label: '自然语言处理实验室', value: '3' },
+        { label: '人工智能实验室', value: '4' },
+      ],
+      userList: [
+        { label: '中年领军专家', value: '1' },
+        { label: '长江学者特聘教授', value: '2' },
+        { label: '国家杰出青年科学基金获得者', value: '3' },
+        { label: '万人计划科技创新领军人才', value: '4' },
+        { label: '万人计划百千万工程领军人才', value: '5' },
+        { label: '青年拔尖英才', value: '6' },
+        { label: '国家优秀青年科学基金获得者', value: '7' },
+        { label: '海外高层次青年人才', value: '8' },
+        { label: '青年长江学者', value: '9' },
+        { label: '科睿唯安高被引科学家', value: '10' },
+      ],
+      subjectList: [
+        { label: '人文科学', value: '1' },
+        { label: '社会科学', value: '2' },
+        { label: '理学', value: '3' },
+        { label: '工学', value: '4' },
+        { label: '农学', value: '5' },
+        { label: '医学', value: '6' },
+      ],
+      progressList: [
+        { label: '已立项', value: '1' },
+        { label: '开题项目', value: '2' },
+        { label: '中期项目', value: '3' },
+        { label: '已结题项目', value: '4' },
+      ],
+      zizhuList: [
+        { label: '面上项目', value: '1' },
+        { label: '重点项目', value: '2' },
+        { label: '重大项目', value: '3' },
+        { label: '重点研究计划', value: '4' },
+        { label: '国家杰出青年科学基金', value: '5' },
+        { label: '专项基金项目', value: '6' },
+        { label: '青年科学基金项目', value: '7' },
+        { label: '科学中心项目', value: '8' },
+        { label: '创新研究群体项目', value: '9' },
+        { label: '专项基金项目', value: '10' },
       ],
       num: [],
       money: [],
