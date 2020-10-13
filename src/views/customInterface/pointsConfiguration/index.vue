@@ -12,7 +12,7 @@
               <el-option label="课题项目" value="课题项目"/>
               <el-option label="学术论文" value="学术论文"/>
               <el-option label="科研专利" value="科研专利"/>
-              <el-option label="科研专著" value="科研专著"/>
+              <el-option label="学术专著" value="学术专著"/>
             </el-select>
           </el-col>
           <el-col :span="2" style="margin-left: 20px;margin-right: 0px">
